@@ -11,6 +11,8 @@ The building blocks with Aurora XML are these elements, which are the parent par
     * Spell Appends if the class has a spell list.
     * Other miscellaneous code, such as backend building blocks for more complicated implementation.
 
+If you want to find out more about how XML works, consider exploring [W3C XML](https://www.w3.org/TR/2008/REC-xml-20081126/).
+
 #### Standard Format
 
 For every "[type](https://github.com/MeriadarGoblin/legacy-repository/wiki/Types)," the standard code should follow this format:
