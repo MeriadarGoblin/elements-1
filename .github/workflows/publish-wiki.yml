@@ -15,5 +15,5 @@ jobs:
   publish-wiki:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: Andrew-Chen-Wang/github-wiki-action@v4
+      - uses: actions/checkout@latest  # Replace 'latest' with 'v4' when problems arise because of updates
+      - uses: Andrew-Chen-Wang/github-wiki-action@latest  # Replace 'latest' with 'v4' when problems arise because of updates
