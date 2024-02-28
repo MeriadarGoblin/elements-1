@@ -5,8 +5,8 @@ This is a list of logic used for general code specific to XML content.
 |Operator|Boolean Login|Result|
 |--------|-------------|------|
 | `!` | NOT | Requires not needing X requirement/node |
-|  | Separator | Separates between different stats, such as a list of elements |
-|  | OR | Separates for one or the other |
+| `[]` | Separator | Separates between different stats, such as a list of elements |
+| `||` | OR | Separates for one or the other |
 | `,` | AND | Basically a list|
 
 ## Requirement Logic
