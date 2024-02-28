@@ -15,5 +15,5 @@ jobs:
   publish-wiki:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main  # Replace 'main' with 'v4' when problems arise because of updates
-      - uses: Andrew-Chen-Wang/github-wiki-action@master  # Replace 'master' with 'v4' when problems arise because of updates
+      - uses: actions/checkout@main  # Replace 'main' with 'v4' when problems arise with of updates
+      - uses: Andrew-Chen-Wang/github-wiki-action@master  # Replace 'master' with 'v4' when problems arise with of updates

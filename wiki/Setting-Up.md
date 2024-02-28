@@ -1,14 +1,38 @@
-...
+The explanations of hosting custom content online, setting up a development environment and all the [type](https://github.com/MeriadarGoblin/legacy-repository/wiki/Types) templates.
 
 ## Hosting
 
-...
+To host your custom content online you need to
 
 ### Providers
 
-...
+There are a lot of providers to choose from when it comes to hosting files online, such as:
+
+- [GitHub](https://github.com/) (recommended)
+- [GitLab](https://about.gitlab.com/)
+- [Vercel](https://vercel.com/) (static site)
+- And many more...
+
+We generally recommended that you use GitHub as your hosting provider as it is straightforward and easy to do.
+From now on, the Wiki assumes you have a GitHub account and repository setup and ready to be worked with, if you have any trouble with using GitHub, please read the following [Quickstart by GitHub](https://docs.github.com/en/get-started/start-your-journey/hello-world).
 
 ### File Tree Structure
+
+The custom content you are going to host must have an `.index` file and a folder with the same file name (NOTE: don't copy `.index` to the folder name!) and place the `.xml` files in there.
+The file tree structure should look something like this:
+
+```
+{YOUR_PROJECT_NAME}/
+├─ content.xml
+├─ source.xml
+{YOUR_PROJECT_NAME}.index
+```
+
+While this is a very simplified structure, it is still fundamental to have a structure based on the above one.
+
+<i>NOTE: when using GitHub to host your custom content, make sure to share the link to the `.index` file as `https://raw.githubusercontent.com/{GITHUB_USERNAME}/{GITHUB_REPO}/{BRANCH}/{YOUR_PROJECT_NAME}.index` and not `https://github.com/{GITHUB_USERNAME}/{GITHUB_REPO}/blob/{BRANCH}/{YOUR_PROJECT_NAME}.index`!<i>
+
+#### Index Files
 
 ...
 
@@ -16,7 +40,7 @@
 
 ...
 
-## Visual Studio Cod
+## Visual Studio Code
 
 ...
 
