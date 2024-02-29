@@ -35,4 +35,3 @@ jobs:
         uses: Andrew-Chen-Wang/github-wiki-action@master  # Replace 'master' with 'v4' when problems arise with updates.
         with:
           path: Wiki/
-          strategy: init
