@@ -6,7 +6,7 @@ tree of elements that it should parse.
 
 &nbsp;&nbsp;&nbsp;&nbsp; The following section is the `<info>` tag that allows the file to be updated online if it
 detects a file version, which will be delved into later. This is only necessary if you intend
-to [host your custom content online]({{ GITHUB_REPO }}/wiki/Setting-Up#hosting); if you intend to send the file to
+to [host your custom content online](<{{ GITHUB_REPO }}/wiki/Setting-Up#hosting>); if you intend to send the file to
 people or keep the file on your PC, this tag is **unnecessary** and can be removed.  
 &nbsp;&nbsp;&nbsp;&nbsp; The line after this is the first `<element>`, which is mainly the purpose of the file, such as
 a class, subclass, race, and so on for what the file intends to add. We must look at each sub-element and its different
@@ -40,7 +40,7 @@ several ways, from the selection name of a feature on a sheet to a spell name.
 
 The “type" is what defines the element. Each type has specific and required child elements to function correctly. “type”
 is often used when granting other elements or giving the user a selection from a particular type of group. Check the
-list of types [here]({{ GITHUB_REPO }}/wiki/Types).
+list of types [here](<{{ GITHUB_REPO }}/wiki/Types>).
 
 ### Source
 
@@ -48,7 +48,8 @@ The source is meant for the source of the material, which is just a string, as p
 takes the source's name and tries to match it with another pre-existing source that can later be filtered in the Sources
 tab under Start. Source is essential when you want to group multiple elements under one source that the program can
 later filter of the user’s choice. If you want to input extra information regarding the source, you may create
-a [source.xml]({{ GITHUB_REPO }}/wiki/Setting-Up#source-definition) file that contains an element with the Source type.
+a [source.xml](<{{ GITHUB_REPO }}/wiki/Setting-Up#source-definition>) file that contains an element with the Source
+type.
 
 ### ID
 
@@ -73,18 +74,18 @@ acronyms is the best way to avoid making long IDs.
 Many child elements, subelements, or tags belong to various element(s) that affect how the element is used and
 presented.
 
-| Child Tag                                                                  | Brief Description                                                                                                                                                                                       | Data Type |
-|:---------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------:|
-| [compendium]({{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#compendium)     | This hides the element from compendium search results.                                                                                                                                                  |  Boolean  |
-| [supports]({{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#supports)         | A collection that filters elements when creating a selection rule, such as archetypes, skill proficiencies, fighting styles, etc.                                                                       |  String   |
-| [requirements]({{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#requirements) | An element can have various requirements, such as a race or a minimum ability score, to allow the element to be selected from a list.                                                                   |  String   |
-| [prerequisite]({{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#prerequisite) | This is a small description that displays only during selects that details why the element is available.                                                                                                |  String   |
-| [description]({{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#description)   | The description appears in the panel on the right side of the builder. This is made using basic HTML/XML.                                                                                               |  String   |
-| [sheet]({{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#sheet)               | The plain text description will be displayed on the sheet instead of inside the builder. You can set attributes that hide the element in the character sheet or change the name displayed on the sheet. |  String   |
-| [setters]({{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#setters)           | A set of setters specific to certain elements, such as a school for spells or names (male/female) for a race.                                                                                           |  Various  |
-| [spellcasting]({{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#spellcasting) | A simple node to indicate that this element is a spellcasting class or archetype. This will create a base for the spellcasting class, including a tab and a spellcasting page.                          |  String   |
-| [multiclass]({{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#multiclass)     | A node on a class to indicate you can multiclass with the class.                                                                                                                                        |  String   |
-| [rules]({{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#rules)               | A collection of rules that this element has, such as statistic increases, granting additional elements, allowing a selection of a collection of elements and so on.                                     |  String   |
+| Child Tag                                                                    | Brief Description                                                                                                                                                                                       | Data Type |
+|:-----------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------:|
+| [compendium](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#compendium>)     | This hides the element from compendium search results.                                                                                                                                                  |  Boolean  |
+| [supports](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#supports>)         | A collection that filters elements when creating a selection rule, such as archetypes, skill proficiencies, fighting styles, etc.                                                                       |  String   |
+| [requirements](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#requirements>) | An element can have various requirements, such as a race or a minimum ability score, to allow the element to be selected from a list.                                                                   |  String   |
+| [prerequisite](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#prerequisite>) | This is a small description that displays only during selects that details why the element is available.                                                                                                |  String   |
+| [description](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#description>)   | The description appears in the panel on the right side of the builder. This is made using basic HTML/XML.                                                                                               |  String   |
+| [sheet](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#sheet>)               | The plain text description will be displayed on the sheet instead of inside the builder. You can set attributes that hide the element in the character sheet or change the name displayed on the sheet. |  String   |
+| [setters](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#setters>)           | A set of setters specific to certain elements, such as a school for spells or names (male/female) for a race.                                                                                           |  Various  |
+| [spellcasting](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#spellcasting>) | A simple node to indicate that this element is a spellcasting class or archetype. This will create a base for the spellcasting class, including a tab and a spellcasting page.                          |  String   |
+| [multiclass](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#multiclass>)     | A node on a class to indicate you can multiclass with the class.                                                                                                                                        |  String   |
+| [rules](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#rules>)               | A collection of rules that this element has, such as statistic increases, granting additional elements, allowing a selection of a collection of elements and so on.                                     |  String   |
 
 ### Compendium
 
@@ -126,7 +127,7 @@ Aurora would then read that this element is part of a group called “Dwarf” t
 
 As long as you follow the same format, you should be able to select a specific element depending on the supports. The
 name section can be named whatever. You can see more
-in [select]({{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#select) rules.
+in [select](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#select>) rules.
 
 ### Requirements
 
@@ -361,12 +362,12 @@ Child tags specific to rules are grant, select, and stat.
 A grant is used when only one option is given to the user automatically. This will not appear as a Select would on the
 application. Most common examples are proficiencies, spells, and skills.
 
-| Field        |   Value   | Required | Notes                                                                                                   |
-|:-------------|:---------:|:--------:|:--------------------------------------------------------------------------------------------------------|
-| type         | (string)  |   Yes    | See [Types]({{ GITHUB_REPO }}/wiki/Types)                                                               |
-| requirements | (string)  |    No    | See [Requirements]({{ GITHUB_REPO }}/wiki/Anotomy-of-the-Element#requirements)                          |
-| id           | (string)  |   Yes    | Only used for IDs for the specific type                                                                 |
-| level        | (integer) |    No    | Only used if a feature is gained at a certain level. Assumes character total level. See [Level Logic]() |
+| Field        |   Value   | Required | Notes                                                                                                                                                             |
+|:-------------|:---------:|:--------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| type         | (string)  |   Yes    | See [Types](<{{ GITHUB_REPO }}/wiki/Types>)                                                                                                                       |
+| requirements | (string)  |    No    | See [Requirements](<{{ GITHUB_REPO }}/wiki/Anotomy-of-the-Element#requirements>)                                                                                  |
+| id           | (string)  |   Yes    | Only used for IDs for the specific type                                                                                                                           |
+| level        | (integer) |    No    | Only used if a feature is gained at a certain level. Assumes character total level. See [Level Notes](<{{ GITHUB_REPO }}/wiki/Anotomy-of-the-Element#level-note>) |
 
 An example of a grant would be:
 
@@ -375,36 +376,36 @@ An example of a grant would be:
 <grant type=“Spell” id=“ID_PHB_SPELL_FIREBALL” requirements=“ID_PHB_RACE_TIEFLING” />
 ```
 
-[List of Proficiencies.]({{ GITHUB_REPO }}/wiki/Proficiencies-IDs)
+[List of Proficiencies.](<{{ GITHUB_REPO }}/wiki/Proficiencies-IDs>)
 
 #### Select
 
 A select is used when there are multiple options that the user can choose from.
 
-|    Field     |       Value       |      Require      | Notes                                                                                                                            |
-|:------------:|:-----------------:|:-----------------:|:---------------------------------------------------------------------------------------------------------------------------------|
-|     type     |     (string)      |        Yes        | See [Types]({{ GITHUB_REPO }}/wiki/Types)                                                                                        |
-|     name     |     (string)      |        Yes        | The name appearing on the selection field.                                                                                       |
-|   supports   |     (string)      |        Yes        | See Support Logic                                                                                                                |
-|   optional   | "True" or "False" |        No         | See Requirement Logic                                                                                                            |
-| requirements |     (string)      |        No         | See Requirement Logic                                                                                                            |
-|    number    | (int) as (string) | No (assumes as 1) | Number of selects to be provided to the user with the same options                                                               |
-|   default    |     (string)      |        No         | The value that will be automatically selected. Please be cautious as these commonly revert changed values to the default.        |
-|    level     |     (integer)     |        No         | Only used if a feature is gained at a certain level. See [Level Notes]({{ GITHUB_REPO }}/wiki/Anotomy-of-the-Element#level-note) |
+|    Field     |       Value       |      Require      | Notes                                                                                                                              |
+|:------------:|:-----------------:|:-----------------:|:-----------------------------------------------------------------------------------------------------------------------------------|
+|     type     |     (string)      |        Yes        | See [Types](<{{ GITHUB_REPO }}/wiki/Types>)                                                                                        |
+|     name     |     (string)      |        Yes        | The name appearing on the selection field.                                                                                         |
+|   supports   |     (string)      |        Yes        | See Support Logic                                                                                                                  |
+|   optional   | "True" or "False" |        No         | See Requirement Logic                                                                                                              |
+| requirements |     (string)      |        No         | See Requirement Logic                                                                                                              |
+|    number    | (int) as (string) | No (assumes as 1) | Number of selects to be provided to the user with the same options                                                                 |
+|   default    |     (string)      |        No         | The value that will be automatically selected. Please be cautious as these commonly revert changed values to the default.          |
+|    level     |     (integer)     |        No         | Only used if a feature is gained at a certain level. See [Level Notes](<{{ GITHUB_REPO }}/wiki/Anotomy-of-the-Element#level-note>) |
 
 #### Stat
 
 Stats play an essential piece in files. It allows the most manipulation of values that can be altered and/or created.
 
-|    Field     |   Value   | Require | Notes                                                                                                                                                                                                |
-|:------------:|:---------:|:-------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     name     | (string)  |   Yes   | The name will be a container for the value.                                                                                                                                                          |
-|    value     |  integer  |   Yes   | An integer value is given to the stat's name.                                                                                                                                                        |
-|    bonus     | (string)  |   No    | See [Bonus Note]({{ GITHUB_REPO }}/wiki/Anotomy-of-the-Element#bonus-note).                                                                                                                          |
-|    inline    | (boolean) |   No    | Allows Value to become a string if "true."                                                                                                                                                           |
-|    level     | (string)  |   No    | Only used if a stat is affected or gained at a certain level. Assumes character total level.                                                                                                         |
-|   equipped   | (string)  |   No    | Like requirements, the value displays if a particular thing is equipped; see Unarmored Defense (Monk & Barbarian.) Also, see [Level Note]({{ GITHUB_REPO }}/wiki/Anotomy-of-the-Element#level-note). |
-| requirements | (string)  |   No    | This makes the stat available if the requirements are met.                                                                                                                                           |
+|    Field     |   Value   | Require | Notes                                                                                                                                                                                                  |
+|:------------:|:---------:|:-------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     name     | (string)  |   Yes   | The name will be a container for the value.                                                                                                                                                            |
+|    value     |  integer  |   Yes   | An integer value is given to the stat's name.                                                                                                                                                          |
+|    bonus     | (string)  |   No    | See [Bonus Note](<{{ GITHUB_REPO }}/wiki/Anotomy-of-the-Element#bonus-note>).                                                                                                                          |
+|    inline    | (boolean) |   No    | Allows Value to become a string if "true."                                                                                                                                                             |
+|    level     | (string)  |   No    | Only used if a stat is affected or gained at a certain level. Assumes character total level.                                                                                                           |
+|   equipped   | (string)  |   No    | Like requirements, the value displays if a particular thing is equipped; see Unarmored Defense (Monk & Barbarian.) Also, see [Level Note](<{{ GITHUB_REPO }}/wiki/Anotomy-of-the-Element#level-note>). |
+| requirements | (string)  |   No    | This makes the stat available if the requirements are met.                                                                                                                                             |
 
 Since the name is the container of the value, the name can be referenced in other stats, such as value or the sheet
 description. An example from Hill Dwarf’s Dwarven Toughness:
@@ -515,7 +516,7 @@ Examples:
 ```
 
 For requirements of specific elements.
-See [requirements]({{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#requirements).
+See [requirements](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#requirements>).
 
 ```xml
 

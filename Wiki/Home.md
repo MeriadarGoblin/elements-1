@@ -1,11 +1,11 @@
 ## Welcome to the Aurora Legacy XML Documentation Wiki!
 
 This is the start of the documentation to document the code used for Aurora, XML. This uses the reference material based
-on the original developer’s [documentation](https://aurorabuilder.com/documentation/) in a more in-depth way. You can
+on the original developer’s [documentation](<https://aurorabuilder.com/documentation/>) in a more in-depth way. You can
 use any text editor when making an XML file for Aurora Builder. However, the recommended editor
-is [Visual Studio Code](https://code.visualstudio.com/), which most of the community uses and is familiar with.
+is [Visual Studio Code](<https://code.visualstudio.com/>), which most of the community uses and is familiar with.
 Additionally, VSCode has
-an [Aurora Legacy Snippets](https://marketplace.visualstudio.com/items?itemName=AuroraLegacy.auroralegacy-snippets)
+an [Aurora Legacy Snippets](<https://marketplace.visualstudio.com/items?itemName=AuroraLegacy.auroralegacy-snippets>)
 extension that can be useful in creating XML files by providing quick templates and grants to proficiencies.
 
 ### Fundamentals of an XML file
@@ -24,7 +24,7 @@ follows:
     * Other miscellaneous code, such as backend building blocks for more complicated implementation.
 
 If you want to find out more about how XML works, consider
-exploring [W3C XML](https://www.w3.org/TR/2008/REC-xml-20081126/).
+exploring [W3C XML](<https://www.w3.org/TR/2008/REC-xml-20081126/>).
 
 #### Standard Format
 

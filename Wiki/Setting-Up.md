@@ -1,5 +1,5 @@
-The explanations of hosting custom content online, setting up a development environment and all the [type]({{
-GITHUB_REPO }}/wiki/Types) templates.
+The explanations of hosting custom content online, setting up a development environment and all the [type](<{{
+GITHUB_REPO }}/wiki/Types>) templates.
 
 ## Hosting
 
@@ -9,15 +9,15 @@ To host your custom content online you need to
 
 There are a lot of providers to choose from when it comes to hosting files online, such as:
 
-- [GitHub](https://github.com/) (recommended)
-- [GitLab](https://about.gitlab.com/)
-- [Vercel](https://vercel.com/) (static site)
+- [GitHub](<https://github.com/>) (recommended)
+- [GitLab](<https://about.gitlab.com/>)
+- [Vercel](<https://vercel.com/>) (static site)
 - And many more...
 
 We generally recommended that you use GitHub as your hosting provider as it is straightforward and easy to do.
 From now on, the Wiki assumes you have a GitHub account and repository setup and ready to be worked with, if you have
 any trouble with using GitHub, please read the
-following [Quickstart by GitHub](https://docs.github.com/en/get-started/start-your-journey/hello-world).
+following [Quickstart by GitHub](<https://docs.github.com/en/get-started/start-your-journey/hello-world>).
 
 ### File Tree Structure
 
@@ -53,7 +53,7 @@ not `https://github.com/{GITHUB_USERNAME}/{GITHUB_REPO}/blob/{BRANCH}/{YOUR_PROJ
 ### Aurora Snippets
 
 The following section will present each type with a template. These templates are obtained from a Visual Studio Code
-snippet for [Aurora Legacy](https://marketplace.visualstudio.com/items?itemName=AuroraLegacy.auroralegacy-snippets).
+snippet for [Aurora Legacy](<https://marketplace.visualstudio.com/items?itemName=AuroraLegacy.auroralegacy-snippets>).
 
 #### Class
 

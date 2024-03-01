@@ -5,17 +5,17 @@ The following is a list of proficiency IDs. How to apply:
 <grant type="Proficiency" id="ID_PROFICIENCY_SKILL_ACROBATICS"/>
 ```
 
-1. [Skill Proficiency]({{ GITHUB_REPO }}/wiki/Proficiencies-IDs#skill-proficiency)
-2. [Saving Throw Proficiency]({{ GITHUB_REPO }}/wiki/Proficiencies-IDs#saving-throw-proficiency)
-3. [Armor Proficiency]({{ GITHUB_REPO }}/wiki/Proficiencies-IDs#armor-proficiency)
-4. [Weapon Proficiency]({{ GITHUB_REPO }}/wiki/Proficiencies-IDs#weapon-proficiency)
-    1. [Simple Weapons]({{ GITHUB_REPO }}/wiki/Proficiencies-IDs#simple-weapons-individual)
-    2. [Martial Weapons]({{ GITHUB_REPO }}/wiki/Proficiencies-IDs#martial-weapons-individual)
-    3. [Firearms]({{ GITHUB_REPO }}/wiki/Proficiencies-IDs#firearm-proficiencies)
-5. [Languages]({{ GITHUB_REPO }}/wiki/Proficiencies-IDs#languages)
-6. [Tools]({{ GITHUB_REPO }}/wiki/Proficiencies-IDs#tools)
-7. [Gaming Sets]({{ GITHUB_REPO }}/wiki/Proficiencies-IDs#gaming-sets)
-8. [Instruments]({{ GITHUB_REPO }}/wiki/Proficiencies-IDs#instruments)
+1. [Skill Proficiency](<{{ GITHUB_REPO }}/wiki/Proficiencies-IDs#skill-proficiency>)
+2. [Saving Throw Proficiency](<{{ GITHUB_REPO }}/wiki/Proficiencies-IDs#saving-throw-proficiency>)
+3. [Armor Proficiency](<{{ GITHUB_REPO }}/wiki/Proficiencies-IDs#armor-proficiency>)
+4. [Weapon Proficiency](<{{ GITHUB_REPO }}/wiki/Proficiencies-IDs#weapon-proficiency>)
+    1. [Simple Weapons](<{{ GITHUB_REPO }}/wiki/Proficiencies-IDs#simple-weapons-individual>)
+    2. [Martial Weapons](<{{ GITHUB_REPO }}/wiki/Proficiencies-IDs#martial-weapons-individual>)
+    3. [Firearms](<{{ GITHUB_REPO }}/wiki/Proficiencies-IDs#firearm-proficiencies>)
+5. [Languages](<{{ GITHUB_REPO }}/wiki/Proficiencies-IDs#languages>)
+6. [Tools](<{{ GITHUB_REPO }}/wiki/Proficiencies-IDs#tools>)
+7. [Gaming Sets](<{{ GITHUB_REPO }}/wiki/Proficiencies-IDs#gaming-sets>)
+8. [Instruments](<{{ GITHUB_REPO }}/wiki/Proficiencies-IDs#instruments>)
 
 ## Skill Proficiency
 
