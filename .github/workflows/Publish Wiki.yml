@@ -4,34 +4,63 @@ on:
     branches: [master]
     paths:
       - Wiki/**
-      - .github/workflows/Publish Wiki.yml
   workflow_dispatch:
+  gollum:
 concurrency:
   group: Publish Wiki
   cancel-in-progress: true
 permissions:
   contents: write
+env:
+  GIT_AUTHOR_NAME: Wiki Gustav[bot]
+  GIT_AUTHOR_EMAIL: actions@github.com
 jobs:
   publish-wiki:
     runs-on: ubuntu-latest
+    if: github.event_name != 'gollum'
     steps:
       - name: Checking out the repository
-        uses: actions/checkout@main  # Replace 'main' with 'v4' when problems arise with updates.
+        uses: actions/checkout@main
+        with:
+          ref: master
+          token: ${{ GITHUB_TOKEN }}
       - name: Placeholder processing the wiki
-        uses: richardrigutins/replace-in-files@main  # Replace 'main' with 'v2' when problems arise with updates.
+        uses: richardrigutins/replace-in-files@main
         with:
           files: Wiki/*.md
           search-text: '{{ GITHUB_REPO }}'
           replacement-text: '${{ github.server_url }}/${{ github.repository }}'
 #     - name: Spellchecking the Wiki
-#       uses: rojopolis/spellcheck-github-actions@master  # Replace 'master' with 'v0' when problems arise with updates.
+#       uses: rojopolis/spellcheck-github-actions@master
 #       with:
 #         source_files: Wiki/*.md
 #         task_name: Markdown
 #         ignores:
 #           - code
 #           - pre
-      - name: Publishing processed Wiki
-        uses: Andrew-Chen-Wang/github-wiki-action@master  # Replace 'master' with 'v4' when problems arise with updates.
+      - name: Syncing the Wiki
+        uses: newrelic/wiki-sync-action@main
         with:
-          path: Wiki/
+          source: Wiki/
+          destination: wiki
+          token: ${{ GITHUB_TOKEN }}
+          gitAuthorName: ${{ env.GIT_AUTHOR_NAME }}
+          gitAuthorEmail: ${{ env.GIT_AUTHOR_EMAIL }}
+  pull-wiki:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'gollum'
+    steps:
+      - name: Checking out the repository
+        uses: actions/checkout@main
+        with:
+          ref: master
+          token: ${{ GITHUB_TOKEN }}
+      - name: Syncing the Wiki
+        uses: newrelic/wiki-sync-action@main
+        with:
+          source: wiki
+          destination: Wiki/
+          token: ${{ GITHUB_TOKEN }}
+          gitAuthorName: ${{ env.GIT_AUTHOR_NAME }}
+          gitAuthorEmail: ${{ env.GIT_AUTHOR_EMAIL }}
+          branch: master
