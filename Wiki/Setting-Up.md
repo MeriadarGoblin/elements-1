@@ -63,7 +63,6 @@ The class type for classes like Barbarians, Clerics, and so on.
 <summary>Template</summary>
 
 ```xml
-
 <element name="name" type="Class" source="source" id="ID_author_source_CLASS_name">
     <description>
         <p></p>

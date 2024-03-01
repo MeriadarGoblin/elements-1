@@ -32,7 +32,6 @@ For every "[type]({{ GITHUB_REPO }}/wiki/Types)," the standard code should follo
 this format:
 
 ```xml
-
 <element name="(name of element)" type="(specific type)" source="(specific source, ie. Homebrew)"
          id="(unique ID(see Anatomy of the Element))">
     ...

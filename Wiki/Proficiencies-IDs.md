@@ -1,7 +1,6 @@
 The following is a list of proficiency IDs. How to apply:
 
 ```xml
-
 <grant type="Proficiency" id="ID_PROFICIENCY_SKILL_ACROBATICS"/>
 ```
 

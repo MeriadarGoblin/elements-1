@@ -26,7 +26,6 @@ Attributes are used as key-value pairs with the patterns key= “value” that d
 For example:
 
 ```xml
-
 <element name="Blade Of Disaster" type="Spell" source="Tasha’s Cauldron of Everything"
          id="ID_WOTC_TCOE_SPELL_BLADE_OF_DISASTER">
 ```
@@ -93,7 +92,6 @@ The compendium is commonly used to disallow content to be found in the compendiu
 we disallow the element called "Blade Of Disaster" from being found in the compendium.
 
 ```xml
-
 <element name="Blade Of Disaster" type="Spell" source="Tasha’s Cauldron of Everything"
          id="ID_WOTC_TCOE_SPELL_BLADE_OF_DISASTER">
     <compendium display="false"/>
@@ -107,7 +105,6 @@ A support is a way of grouping elements to be later used in Selects or the Compe
 Hill Dwarf from the race-dwarf.xml file.
 
 ```xml
-
 <element name="Hill Dwarf" type="Sub Race" source="Player’s Handbook" id="ID_SUB_RACE_HILL_DWARF">
     <supports>Dwarf</supports>
     ...
@@ -119,7 +116,6 @@ Aurora would then read that this element is part of a group called “Dwarf” t
 “Dwarf.” An example of selecting a subrace specifically for dwarfs would be as follows:
 
 ```xml
-
 <rules>
     <select type="Sub Race" name="Dwarven Subrace" supports="Dwarf"/>
 </rules>
@@ -179,7 +175,6 @@ random name based on the character's gender.
 #### Required Setters (Race)
 
 ```xml
-
 <setters>
     <set name="names" type="male">Adrik, Alberich, Baern, Barendd, Brottor</set>
     <set name="names" type="female">Amber, Artin, Audhild, Bardryn, Dagnal</set>
@@ -191,7 +186,6 @@ random name based on the character's gender.
 #### Required Setters (Class)
 
 ```xml
-
 <setters>
     <set name="hd">d8</set>
 </setters>
@@ -203,7 +197,6 @@ others, this adds a small description to be viewed briefly describing the class.
 #### Required Setters (Spell)
 
 ```xml
-
 <setters>
     <set name="level">3</set>
     <set name="school">Evocation</set>
@@ -237,7 +230,6 @@ value if referenced by their stat name between {{**STAT**}}. For example, monk K
 on the sheet as values.
 
 ```xml
-
 <sheet>
     <description>You have {{ki:points}} Ki Points and your Ki DC is {{ki:dc}}</description>
 </sheet>
@@ -248,7 +240,6 @@ When used with a sheet, the display option creates the option to disable it to b
 space of the sheet, this is commonly used for features that don't add any particular actions or passives.
 
 ```xml
-
 <sheet display="false">
     <description>You gain proficiency in Acrobatics.</description>
 </sheet>
@@ -257,7 +248,6 @@ space of the sheet, this is commonly used for features that don't add any partic
 The level attribute can also change the description at certain levels. For example, tieflings and their cantrips:
 
 ```xml
-
 <sheet>
     <description>You know the thaumaturgy cantrip. Charisma is your spellcasting ability for these spells.</description>
     <description level="3">You know the thaumaturgy cantrip. You can cast the hellish rebuke spell as a 2nd-level spell
@@ -277,7 +267,6 @@ case-sensitive. Use the ability attribute to assign one of the `abilities` as th
 with the class name that should function as the spell list.
 
 ```xml
-
 <spellcasting name="Wizard" ability="Intelligence">
     <list>Wizard</list>
 </spellcasting>
@@ -289,7 +278,6 @@ You can extend an existing spelllist of a class by including a spellcasting node
 original spellcasting node and include the `extend` attribute with the value of `true`.
 
 ```xml
-
 <spellcasting name="Wizard" extend="true">
     <extend>Cleric</extend>
 </spellcasting>
@@ -305,12 +293,10 @@ parts, starting with the `id`. Include the requirements to multiclass with or in
 The `ID_INTERNAL_GRANT_MULTICLASS` element that is granted here is a requirement.
 
 ```xml
-
 <grant type="Grants" id="ID_INTERNAL_GRANT_MULTICLASS"/>
 ```
 
 ```xml
-
 <multiclass id="ID_WOTC_PHB_MULTICLASS_PALADIN">
     <prerequisite>Strength 13 and Charisma 13</prerequisite>
     <requirements>([str:13],[cha:13])</requirements>
@@ -333,7 +319,6 @@ The `ID_INTERNAL_GRANT_MULTICLASS` element that is granted here is a requirement
 A rule is a collection of grants, selects, and stats the Element provides. This example is from the class-monk.xml file.
 
 ```xml
-
 <rules>
     <grant type="Proficiency" id="ID_PROFICIENCY_WEAPON_PROFICIENCY_SIMPLE_WEAPONS"
            requirements="!ID_WOTC_PHB_MULTICLASS_MONK"/>
@@ -372,7 +357,6 @@ application. Most common examples are proficiencies, spells, and skills.
 An example of a grant would be:
 
 ```xml
-
 <grant type=“Spell” id=“ID_PHB_SPELL_FIREBALL” requirements=“ID_PHB_RACE_TIEFLING” />
 ```
 
@@ -411,7 +395,6 @@ Since the name is the container of the value, the name can be referenced in othe
 description. An example from Hill Dwarf’s Dwarven Toughness:
 
 ```xml
-
 <stat name="hp" value="level"/>
 ```
 
@@ -423,7 +406,6 @@ gain hp for three times the level, the stat must be repeated twice. You can add 
 total.
 
 ```xml
-
 <stat name="hp" value="level"/>
 <stat name="hp" value="level"/>
 <stat name="hp" value="level"/>
@@ -435,7 +417,6 @@ When `inline="True"`, a stat can have the value as a string. Please take a look 
 example.
 
 ```xml
-
 <sheet alt="Black">
     <description>Your draconic ancestry is {{draconic-ancestry}}. Your damage type is {{draconic-ancestry:damage type}}.
         Your breath weapon is {{draconic-ancestry:breath}}.
@@ -459,7 +440,6 @@ standardized values for `bonus=""` that are used throughout the repo (shown belo
   higher value of the flat 1
 
 ```xml
-
 <stat name="aura of hate:damage" value="1" bonus="base"/>
 <stat name="aura of hate:damage" value="charisma:modifier" bonus="base"/>
 ```
@@ -469,7 +449,6 @@ standardized values for `bonus=""` that are used throughout the repo (shown belo
   higher of the strength or dexterity modifier.
 
 ```xml
-
 <stat name="superiority dice:dc:ability" value="strength:modifier" bonus="ability"/>
 <stat name="superiority dice:dc:ability" value="dexterity:modifier" bonus="ability"/>
 ```
@@ -480,7 +459,6 @@ standardized values for `bonus=""` that are used throughout the repo (shown belo
   that in Aurora, those stats would look something like this:
 
 ```xml
-
 <stat name="ac:misc" value="3" bonus="morale"/>
 <stat name="ac:misc" value="2" bonus="morale"/>
 ```
@@ -494,7 +472,6 @@ standardized values for `bonus=""` that are used throughout the repo (shown belo
 The inline values are strings, appearing as characters when referenced.
 
 ```xml
-
 <rules>
     <stat inline="true" name="bite damage" value="1d6" bonus="base"/>
 </rules>
@@ -511,7 +488,6 @@ They can be used in requirement logic, stat values, and sheet descriptions (see 
 Examples:
 
 ```xml
-
 <requirements>[level:2]</requirements>
 ```
 
@@ -519,7 +495,6 @@ For requirements of specific elements.
 See [requirements](<{{ GITHUB_REPO }}/wiki/Anatomy-of-the-Element#requirements>).
 
 ```xml
-
 <stat name="hp" value="level"/>
 ```
 
