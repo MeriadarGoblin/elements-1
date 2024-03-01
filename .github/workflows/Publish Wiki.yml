@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@main
         with:
           ref: master
-          token: ${{ GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Placeholder processing the wiki
         uses: richardrigutins/replace-in-files@main
         with:
@@ -43,7 +43,7 @@ jobs:
         with:
           source: Wiki/
           destination: wiki
-          token: ${{ GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           gitAuthorName: ${{ env.GIT_AUTHOR_NAME }}
           gitAuthorEmail: ${{ env.GIT_AUTHOR_EMAIL }}
   pull-wiki:
@@ -54,13 +54,13 @@ jobs:
         uses: actions/checkout@main
         with:
           ref: master
-          token: ${{ GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Syncing the Wiki
         uses: newrelic/wiki-sync-action@main
         with:
           source: wiki
           destination: Wiki/
-          token: ${{ GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           gitAuthorName: ${{ env.GIT_AUTHOR_NAME }}
           gitAuthorEmail: ${{ env.GIT_AUTHOR_EMAIL }}
           branch: master
