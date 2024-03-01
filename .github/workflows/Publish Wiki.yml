@@ -15,15 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checking out the repository
-        uses: actions/checkout@main  # Replace 'main' with 'v4' when problems arise with updates.
+        uses: actions/checkout@main
       - name: Placeholder processing the wiki
-        uses: richardrigutins/replace-in-files@main  # Replace 'main' with 'v2' when problems arise with updates.
+        uses: richardrigutins/replace-in-files@main
         with:
           files: Wiki/*.md
           search-text: '{{ GITHUB_REPO }}'
           replacement-text: '${{ github.server_url }}/${{ github.repository }}'
 #     - name: Spellchecking the Wiki
-#       uses: rojopolis/spellcheck-github-actions@master  # Replace 'master' with 'v0' when problems arise with updates.
+#       uses: rojopolis/spellcheck-github-actions@master
 #       with:
 #         source_files: Wiki/*.md
 #         task_name: Markdown
@@ -31,7 +31,7 @@ jobs:
 #           - code
 #           - pre
       - name: Publishing processed Wiki
-        uses: Andrew-Chen-Wang/github-wiki-action@master  # Replace 'master' with 'v4' when problems arise with updates.
+        uses: Andrew-Chen-Wang/github-wiki-action@master
         with:
           path: Wiki/
           strategy: init
