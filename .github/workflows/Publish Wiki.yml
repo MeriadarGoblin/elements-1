@@ -13,7 +13,7 @@ permissions:
   contents: write
 env:
   GIT_AUTHOR_NAME: Wiki Gustav[bot]
-  GIT_AUTHOR_EMAIL: actions@github.coml
+  GIT_AUTHOR_EMAIL: actions@github.com
 jobs:
   publish-wiki:
     runs-on: ubuntu-latest
