@@ -22,14 +22,6 @@ jobs:
           files: Wiki/*.md
           search-text: '{{ GITHUB_REPO }}'
           replacement-text: '${{ github.server_url }}/${{ github.repository }}'
-#     - name: Spellchecking the Wiki
-#       uses: rojopolis/spellcheck-github-actions@master
-#       with:
-#         source_files: Wiki/*.md
-#         task_name: Markdown
-#         ignores:
-#           - code
-#           - pre
       - name: Publishing processed Wiki
         uses: Andrew-Chen-Wang/github-wiki-action@master
         with:
