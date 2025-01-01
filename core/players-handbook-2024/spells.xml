@@ -4,7 +4,7 @@
 		<name>Spells</name>
 		<description>Spells from the Player’s Handbook 2024.</description>
 		<author url="https://dndstore.wizards.com/us/en/product/1001494/2024-player-s-handbook-digital-plus-physical-bundle">Wizards of the Coast</author>
-		<update version="0.0.1">
+		<update version="0.0.2">
 			<file name="spells.xml" url="https://raw.githubusercontent.com/AuroraLegacy/elements/master/core/players-handbook-2024/spells.xml" />
 		</update>
 	</info>
@@ -16,7 +16,7 @@
 			<p class="indent"><b><i>Cantrip Upgrade.</i></b> The damage increases by 1d6 when you reach levels 5 (2d6), 11 (3d6), and 17 (4d6).</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">acid</set>
 			<set name="level">0</set>
 			<set name="school">Evocation</set>
 			<set name="time">Action</set>
@@ -30,13 +30,13 @@
 		</setters>
 	</element>
 	<element name="Aid" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_AID">
-		<supports>Bard, Cleric, Druid, Paladin, Ranger</supports>
+		<supports>Bard, Cleric, Druid, Paladin, Ranger, Healing Spell</supports>
 		<description>
 			<p>Choose up to three creatures within range. Each target's Hit Point maximum and current Hit Points increases by 5 for the duration.</p>
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> Each target’s Hit Points increase by 5 for each spell slot level above 2.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">healing</set>
 			<set name="level">2</set>
 			<set name="school">Abjuration</set>
 			<set name="time">Action</set>
@@ -78,10 +78,10 @@
 			<p>You alter your physical form. Choose one of the following options. Its effects last for the duration, during which you can take a Magic action to replace the option you chose with a different one.</p>
 			<p class="indent"><b><i>Aquatic Adaptation.</i></b> You sprout gills and grow webs between your fingers. You can breathe underwater and gain a Swim Speed equal to your Speed.</p>
 			<p class="indent"><b><i>Change Appearance.</i></b> You alter your appearance. You decide what you look like, including your height, weight, facial features, sound of your voice, hair length, coloration, and other distinguishing characteristics. You can make yourself appear as a member of another species, though none of your statistics change. You can’t appear as a creature of a different size, and your basic shape stays the same; if you’re bipedal, you can’t use this spell to become quadrupedal, for instance. For the duration, you can take a Magic action to change your appearance in this way again.</p>
-			<p class="indent"><b><i>Natural Weapons.</i></b> You grow claws (Slashing), fangs (Piercing), horns (Piercing), or hooves (Bludgeoning). When you use your Unarmed Strike to deal damage with that new growth, it deals ld6 damage of the type in parentheses instead of dealing the normal damage for your Unarmed Strike, and you use your spellcasting ability modifier for the attack and damage rolls rather than using Strength.</p>
+			<p class="indent"><b><i>Natural Weapons.</i></b> You grow claws (Slashing), fangs (Piercing), horns (Piercing), or hooves (Bludgeoning). When you use your Unarmed Strike to deal damage with that new growth, it deals 1d6 damage of the type in parentheses instead of dealing the normal damage for your Unarmed Strike, and you use your spellcasting ability modifier for the attack and damage rolls rather than using Strength.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">bludgeoning, piercing, slashing</set>
 			<set name="level">2</set>
 			<set name="school">Transmutation</set>
 			<set name="time">Action</set>
@@ -90,7 +90,7 @@
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">true</set>
 			<set name="hasMaterialComponent">false</set>
-			<set name="isConcentration">false</set>
+			<set name="isConcentration">true</set>
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
@@ -101,7 +101,7 @@
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> You can target one additional Beast for each spell slot level above 1.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">charmed</set>
 			<set name="level">1</set>
 			<set name="school">Enchantment</set>
 			<set name="time">Action</set>
@@ -115,24 +115,46 @@
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
-	<element name="Animal Shapes" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_ANIMAL_SHAPES">
-		<supports>Druid</supports>
+	<element name="Animal Messenger" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_ANIMAL_MESSENGER">
+		<supports>Bard, Druid, Ranger, Spell Saving Throw</supports>
 		<description>
-			<p>Choose any number of willing creatures that you can see within range. Each target shape-shifts into a Large or smaller Beast ofyour choice that has a Challenge Rating of 4 or lower. You can choose a different form for each target. On later turns, you can take a Magic action to transform the targets again.</p>
-			<p class="indent">A target’s game statistics are replaced by the chosen Beast’s statistics, but the target retains its creature type; Hit Points; Hit Point Dice; alignment; ability to communicate; and Intelligence, Wisdom, and Charisma scores. The target’s actions are limited by the Beast form’s anatomy, and it can’t cast spells. The target’s equipment melds into the new form, and the target can’t use any of that equipment while in that form.</p>
-			<p class="indent">The target gains a number ofTemporary Hit Points equal to the Beast form’s Hit Points. The transformation lasts for the duration for each target, until the target has no Temporary Hit Points, or until the target leaves the form as a Bonus Action.</p>
+			<p>A Tiny Beast of your choice that you can see within range must succeed on a Charisma saving throw, or it attempts to deliver a message for you (if the target's Challenge Rating isn't 0, it automatically succeeds). You specify a location you have visited and a recipient who matches a general description, such as "a person dressed in the uniform of the town guard" or "a red-haired dwarf wearing a pointed hat." You also communicate a message of up to twenty-five words. The Beast travels for the duration toward the specified location, covering about 25 miles per 24 hours or 50 miles if the Beast can fly.</p>
+			<p class="indent">When the Beast arrives, it delivers your message to the creature that you described, mimicking your communication. If the Beast doesn't reach its destination before the spell ends, the message is lost, and the Beast returns to where you cast the spell.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The spell's duration increases by 48 hours for each spell slot level above 2.</p>
 		</description>
 		<setters>
 			<set name="keywords"></set>
-			<set name="level">8</set>
-			<set name="school">Transmutation</set>
-			<set name="time">Action</set>
+			<set name="level">2</set>
+			<set name="school">Enchantment</set>
+			<set name="time">Action or Ritual</set>
 			<set name="range">30 feet</set>
 			<set name="duration">24 hours</set>
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">true</set>
-			<set name="hasMaterialComponent">false</set>
+			<set name="hasMaterialComponent">true</set>
+			<set name="materialComponent">a morsel of food</set>
 			<set name="isConcentration">false</set>
+			<set name="isRitual">true</set>
+		</setters>
+	</element>
+	<element name="Animal Shapes" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_ANIMAL_SHAPES">
+		<supports>Druid</supports>
+		<description>
+			<p>Choose any number of willing creatures that you can see within range. Each target shape-shifts into a Large or smaller Beast of your choice that has a Challenge Rating of 4 or lower. You can choose a different form for each target. On later turns, you can take a Magic action to transform the targets again.</p>
+			<p class="indent">A target’s game statistics are replaced by the chosen Beast’s statistics, but the target retains its creature type; Hit Points; Hit Point Dice; alignment; ability to communicate; and Intelligence, Wisdom, and Charisma scores. The target’s actions are limited by the Beast form’s anatomy, and it can’t cast spells. The target’s equipment melds into the new form, and the target can’t use any of that equipment while in that form.</p>
+			<p class="indent">The target gains a number of Temporary Hit Points equal to the Beast form’s Hit Points. The transformation lasts for the duration for each target, until the target has no Temporary Hit Points, or until the target leaves the form as a Bonus Action.</p>
+		</description>
+		<setters>
+			<set name="keywords">thp</set>
+			<set name="level">8</set>
+			<set name="school">Transmutation</set>
+			<set name="time">Action</set>
+			<set name="range">30 feet</set>
+			<set name="duration">Concentration, up to 24 hours</set>
+			<set name="hasVerbalComponent">true</set>
+			<set name="hasSomaticComponent">true</set>
+			<set name="hasMaterialComponent">false</set>
+			<set name="isConcentration">true</set>
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
@@ -141,7 +163,7 @@
 		<description>
 			<p>Choose a pile of bones or a corpse of a Medium or Small Humanoid within range. The target becomes an Undead creature: a Skeleton if you chose bones or a Zombie if you chose a corpse (see appendix B for the stat blocks).</p>
 			<p class="indent"><b><i>On each of your turns, you can take a Bonus Action to mentally command any creature you made with this spell if the creature is within 60 feet of you (if you control multiple creatures, you can command any of them at the same time, issuing the same command to each one). You decide what action the creature will take and where it will move on its next turn, or you can issue a general command, such as to guard a chamber or corridor. If you issue no commands, the creature takes the Dodge action and moves only to avoid harm. Once given an order, the creature continues to follow it until its task is complete.</i></b></p>
-			<p class="indent"><b><i>The creature is under your control for 24 hours, after which it stops obeying any command you’ve given it. To maintain control of the creature for another 24 hours, you must cast this spell on the crea ture again before the current 24-hour period ends. This use of the spell reasserts your control over up to four creatures you have animated with this spell rather than animating a new creature.</i></b></p>
+			<p class="indent"><b><i>The creature is under your control for 24 hours, after which it stops obeying any command you’ve given it. To maintain control of the creature for another 24 hours, you must cast this spell on the creature again before the current 24-hour period ends. This use of the spell reasserts your control over up to four creatures you have animated with this spell rather than animating a new creature.</i></b></p>
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> You animate or reassert control over two additional Undead creatures for each spell slot level above 3. Each of the creatures must come from a different corpse or pile of bones.</p>
 		</description>
 		<setters>
@@ -165,10 +187,10 @@
 			<p>Objects animate at your command. Choose a number of nonmagical objects within range that aren’t being worn or carried, aren’t fixed to a surface, and aren’t Gargantuan. The maximum number of objects is equal to your spellcasting ability modifier; for this number, a Medium or smaller target counts as one object, a Large target counts as two, and a Huge target counts as three.</p>
 			<p class="indent">Each target animates, sprouts legs, and becomes a Construct that uses the Animated Object stat block; this creature is under your control until the spell ends or until it is reduced to 0 Hit Points. Each creature you make with this spell is an ally to you and your allies. In combat, it shares your Initiative count and takes its turn immediately after yours.</p>
 			<p class="indent">Until the spell ends, you can take a Bonus Action to mentally command any creature you made with this spell if the creature is within 500 feet of you (if you control multiple creatures, you can command any of them at the same time, issuing the same command to each one). If you issue no commands, the creature takes the Dodge action and moves only to avoid harm. When the creature drops to 0 Hit Points, it reverts to its object form, and any remaining damage carries over to that form.</p>
-			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The creature’s Slam damage increases by ld4 (Medium or smaller), ld6 (Large), or ldl2 (Huge) for each spell slot level above 5.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The creature’s Slam damage increases by 1d4 (Medium or smaller), 1d6 (Large), or 1d12 (Huge) for each spell slot level above 5.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">summon</set>
 			<set name="level">5</set>
 			<set name="school">Transmutation</set>
 			<set name="time">Action</set>
@@ -181,7 +203,7 @@
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
-	<element name="Antilife Shell" type="Spell" source="Player’s Handbook 2024" id="Antilife Shell">
+	<element name="Antilife Shell" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_ANTILIFE_SHELL">
 		<supports>Druid</supports>
 		<description>
 			<p>An aura extends from you in a 10-foot Emanation for the duration. The aura prevents creatures other than Constructs and Undead from passing or reaching through it. An affected creature can cast spells or make attacks with Ranged or Reach weapons through the barrier.</p>
@@ -229,11 +251,11 @@
 		<description>
 			<p>As you cast the spell, choose whether it creates antipathy or sympathy, and target one creature or object that is Huge or smaller. Then specify a kind of creature, such as red dragons, goblins, or vampires. A creature of the chosen kind makes a Wisdom saving throw when it comes within 120 feet of the target. Your choice of antipathy or sympathy determines what happens to a creature when it fails that save:</p>
 			<p><b>Antipathy.</b> The creature has the Frightened condition. The Frightened creature must use its movement on its turns to get as far away as possible from the target, moving by the safest route.</p>
-			<p><b>Sympathy.</b> The creature has the Charmed condition. The Charmed creature must use its movement on its turns to get as close as possible to the target, moving by the safest route. Ifthe creature is within 5 feet of the target, the creature can’t willingly move away. Ifthe target damages the Charmed creature, that creature can make a Wisdom saving throw to end the effect, as described below.</p>
+			<p><b>Sympathy.</b> The creature has the Charmed condition. The Charmed creature must use its movement on its turns to get as close as possible to the target, moving by the safest route. If the creature is within 5 feet of the target, the creature can’t willingly move away. If the target damages the Charmed creature, that creature can make a Wisdom saving throw to end the effect, as described below.</p>
 			<p class="indent"><b><i>Ending the Effect.</i></b> If the Frightened or Charmed creature ends its turn more than 120 feet away from the target, the creature makes a Wisdom saving throw. On a successful save, the creature is no longer affected by the target. A creature that successfully saves against this effect is immune to it for 1 minute, after which it can be affected again.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">charmed, frightened</set>
 			<set name="level">8</set>
 			<set name="school">Enchantment</set>
 			<set name="time">1 hour</set>
@@ -268,14 +290,14 @@
 		</setters>
 	</element>
 	<element name="Arcane Gate" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_ARCANE_GATE">
-		<supports>Bard, Druid, Wizard</supports>
+		<supports>Sorcerer, Warlock, Wizard</supports>
 		<description>
-			<p>You create linked teleportation portals. Choose two Large, unoccupied spaces on the ground that you can see, one space within range and the other one within 10 feet of you. A circular portal opens in each ofthose spaces and remains for the duration.</p>
+			<p>You create linked teleportation portals. Choose two Large, unoccupied spaces on the ground that you can see, one space within range and the other one within 10 feet of you. A circular portal opens in each of those spaces and remains for the duration.</p>
 			<p class="indent">The portals are two-dimensional glowing rings filled with mist that blocks sight. They hover inches from the ground and are perpendicular to it.</p>
-			<p class="indent">A portal is open on only one side (you choose which). Anything entering the open side of a portal exits from the open side of the other portal as ifthe two were adjacent to each other. As a Bonus Action, you can change the facing of the open sides.</p>
+			<p class="indent">A portal is open on only one side (you choose which). Anything entering the open side of a portal exits from the open side of the other portal as if the two were adjacent to each other. As a Bonus Action, you can change the facing of the open sides.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">teleport</set>
 			<set name="level">6</set>
 			<set name="school">Conjuration</set>
 			<set name="time">Action</set>
@@ -312,10 +334,10 @@
 		<supports>Sorcerer, Wizard, Healing Spell</supports>
 		<description>
 			<p>You tap into your life force to heal yourself. Roll one or two of your unexpended Hit Point Dice, and regain a number of Hit Points equal to the roll’s total plus your spellcasting ability modifier. Those dice are then expended.</p>
-			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The number of unexpended Hit Dice you can rcli increases by one for each spell slot level above 2.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The number of unexpended Hit Dice you can roll increases by one for each spell slot level above 2.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">healing</set>
 			<set name="level">2</set>
 			<set name="school">Abjuration</set>
 			<set name="time">Bonus Action</set>
@@ -329,16 +351,16 @@
 		</setters>
 	</element>
 	<element name="Armor of Agathys" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_ARMOR_OF_AGATHYS">
-		<supports>Warlock</supports>
+		<supports>Warlock, Damaging Spell</supports>
 		<description>
 			<p>Protective magical frost surrounds you. You gain 5 Temporary Hit Points. If a creature hits you with a melee attack roll before the spell ends, the creature takes 5 Cold damage. The spell ends early if you have no Temporary Hit Points.</p>
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The Temporary Hit Points and the Cold damage both increase by 5 for each spell slot above 1.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">cold, thp</set>
 			<set name="level">1</set>
 			<set name="school">Abjuration</set>
-			<set name="time">Bonus Actiom</set>
+			<set name="time">Bonus Action</set>
 			<set name="range">Self</set>
 			<set name="duration">1 hour</set>
 			<set name="hasVerbalComponent">true</set>
@@ -350,13 +372,13 @@
 		</setters>
 	</element>
 	<element name="Arms of Hadar" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_ARMS_OF_HADAR">
-		<supports>Warlock, Spell Saving Throw</supports>
+		<supports>Warlock, Damaging Spell, Spell Saving Throw</supports>
 		<description>
 			<p>Invoking Hadar, you cause tendrils to erupt from yourself. Each creature in a 10-foot Emanation originating from you makes a Strength saving throw. On a failed save, a target takes 2d6 Necrotic damage and can’t take Reactions until the start of its next turn. On a successful save, a target takes half as much damage only.</p>
-			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by ld6 for each spell slot level above 1.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 1d6 for each spell slot level above 1.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">necrotic</set>
 			<set name="level">1</set>
 			<set name="school">Conjuration</set>
 			<set name="time">Action</set>
@@ -372,11 +394,11 @@
 	<element name="Astral Projection" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_ASTRAL_PROJECTION">
 		<supports>Cleric, Warlock, Wizard</supports>
 		<description>
-			<p>You and up to eight willing creatures within range project your astral bodies into the Astral Plane (the spell ends instantly if you are already on that plane). Each target’s body is left behind in a state ofsuspended animation; it has the Unconscious condition, doesn’t need food or air, and doesn’t age.</p>
-			<p class="indent">A target’s astral form resembles its body in almost every way, replicating its game statistics and possessions. The principal difference is the addition of a silvery cord that trails from between the shoulderblades of the astral form. The cord fades from view after 1 foot. If the cord is cut—which happens only when an effect states that it does so—the target’s body and astral form both die.</p>
+			<p>You and up to eight willing creatures within range project your astral bodies into the Astral Plane (the spell ends instantly if you are already on that plane). Each target’s body is left behind in a state of suspended animation; it has the Unconscious condition, doesn’t need food or air, and doesn’t age.</p>
+			<p class="indent">A target’s astral form resembles its body in almost every way, replicating its game statistics and possessions. The principal difference is the addition of a silvery cord that trails from between the shoulder blades of the astral form. The cord fades from view after 1 foot. If the cord is cut—which happens only when an effect states that it does so—the target’s body and astral form both die.</p>
 			<p class="indent">A target’s astral form can travel through the Astral Plane. The moment an astral form leaves that plane, the target’s body and possessions travel along the silver cord, causing the target to re-enter its body on the new plane.</p>
 			<p class="indent">Any damage or other effects that apply to an astral form have no effect on the target’s body and vice versa. If a target's body or astral form drops to 0 Hit Points, the spell ends for that target. The spell ends for all the targets if you take a Magic action to dismiss it.</p>
-			<p class="indent">When the spell ends for a target who isn’t dead, the target reappears in its body and exits the state ofsuspended animation.</p>
+			<p class="indent">When the spell ends for a target who isn’t dead, the target reappears in its body and exits the state of suspended animation.</p>
 		</description>
 		<setters>
 			<set name="keywords"></set>
@@ -388,7 +410,7 @@
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">true</set>
 			<set name="hasMaterialComponent">true</set>
-			<set name="materialComponent">for each of the spell’s targets, one jacinth worth 1,000+ CP and one silver bar worth 100+ CP, all ofwhich the spell consumes</set>
+			<set name="materialComponent">for each of the spell’s targets, one jacinth worth 1,000+ CP and one silver bar worth 100+ CP, all of which the spell consumes</set>
 			<set name="isConcentration">false</set>
 			<set name="isRitual">false</set>
 		</setters>
@@ -431,7 +453,7 @@
 			<p>An aura radiates from you in a 30-foot Emanation for the duration. While in the aura, you and your allies have Resistance to Necrotic damage, and your Hit Point maximums can’t be reduced. If an ally with 0 Hit Points starts its turn in the aura, that ally regains 1 Hit Point.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">necrotic, healing</set>
 			<set name="level">4</set>
 			<set name="school">Abjuration</set>
 			<set name="time">Action</set>
@@ -445,12 +467,12 @@
 		</setters>
 	</element>
 	<element name="Aura of Purity" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_AURA_OF_PURITY">
-		<supports>Cleric, Paladin, Spell Saving Throw</supports>
+		<supports>Cleric, Paladin</supports>
 		<description>
 			<p>An aura radiates from you in a 30-foot Emanation for the duration. While in the aura, you and your allies have Resistance to Poison damage and Advantage on saving throws to avoid or end effects that include the Blinded, Charmed, Deafened, Frightened, Paralyzed, Poisoned, or Stunned condition.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">poison, charmed, deafened, frightened, paralyzed, poisoned, stunned</set>
 			<set name="level">4</set>
 			<set name="school">Abjuration</set>
 			<set name="time">Action</set>
@@ -464,17 +486,17 @@
 		</setters>
 	</element>
 	<element name="Aura of Vitality" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_AURA_OF_VITALITY">
-		<supports>Cleric, Druid, Paladin</supports>
+		<supports>Cleric, Druid, Paladin, Healing Spell</supports>
 		<description>
 			<p>An aura radiates from you in a 30-foot Emanation for the duration. When you create the aura and at the start of each of your turns while it persists, you can restore 2d6 Hit Points to one creature in it.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">healing</set>
 			<set name="level">3</set>
 			<set name="school">Abjuration</set>
 			<set name="time">Action</set>
 			<set name="range">Self</set>
-			<set name="duration">duration</set>
+			<set name="duration">Concentration, up to 1 minute</set>
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">false</set>
 			<set name="hasMaterialComponent">false</set>
@@ -489,7 +511,7 @@
 			<p class="indent">The awakened target has the Charmed condition for 30 days or until you or your allies deal damage to it. When that condition ends, the awakened creature chooses its attitude toward you.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">charmed</set>
 			<set name="level">5</set>
 			<set name="school">Transmutation</set>
 			<set name="time">8 hours</set>
@@ -506,7 +528,7 @@
 	<element name="Bane" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BANE">
 		<supports>Bard, Cleric, Warlock, Spell Saving Throw</supports>
 		<description>
-			<p>Up to three creatures of your choice that you can see within range must each make a Charisma saving throw. Whenever a target that fails this save makes an attack roll or a saving throw before the spell ends, the target must subtract ld4 from the attack roll or save.</p>
+			<p>Up to three creatures of your choice that you can see within range must each make a Charisma saving throw. Whenever a target that fails this save makes an attack roll or a saving throw before the spell ends, the target must subtract 1d4 from the attack roll or save.</p>
 		</description>
 		<setters>
 			<set name="keywords"></set>
@@ -524,21 +546,21 @@
 		</setters>
 	</element>
 	<element name="Banishing Smite" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BANISHING_SMITE">
-		<supports>Paladin, Spell Saving Throw</supports>
+		<supports>Paladin, Damaging Spell, Spell Saving Throw</supports>
 		<description>
-			<p>The target hit by the attack roll takes an extra 5dl0 Force damage from the attack. If the attack reduces the target to 50 Hit Points or fewer, the target must succeed on a Charisma saving throw or be transported to a harmless demiplane for the duration. While there, the target has the Incapacitated condition. When the spell ends, the target reappears in the space it left or in the nearest unoccupied space if that space is occupied.</p>
+			<p>The target hit by the attack roll takes an extra 5d10 Force damage from the attack. If the attack reduces the target to 50 Hit Points or fewer, the target must succeed on a Charisma saving throw or be transported to a harmless demiplane for the duration. While there, the target has the Incapacitated condition. When the spell ends, the target reappears in the space it left or in the nearest unoccupied space if that space is occupied.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">force, incapacitated</set>
 			<set name="level">5</set>
-			<set name="school">Conjuratin</set>
+			<set name="school">Conjuration</set>
 			<set name="time">Bonus Action, which you take immediately after hitting a creature with a Melee weapon or an Unarmed Strike</set>
 			<set name="range">Self</set>
-			<set name="duration"> Concentration, up to 1 minute</set>
+			<set name="duration">Concentration, up to 1 minute</set>
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">false</set>
 			<set name="hasMaterialComponent">false</set>
-			<set name="isConcentration">false</set>
+			<set name="isConcentration">true</set>
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
@@ -550,7 +572,7 @@
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> You can target one additional creature for each spell slot level above 4.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">incapacitated</set>
 			<set name="level">4</set>
 			<set name="school">Abjuration</set>
 			<set name="time">Action</set>
@@ -567,7 +589,7 @@
 	<element name="Barkskin" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BARKSKIN">
 		<supports>Druid, Ranger</supports>
 		<description>
-			<p>You touch a willing creature. Until the spell ends, the target’s skin assumes a bark-like appearance, and the target has an Armor Class of 17 ifits AC is lower than that.</p>
+			<p>You touch a willing creature. Until the spell ends, the target’s skin assumes a bark-like appearance, and the target has an Armor Class of 17 if its AC is lower than that.</p>
 		</description>
 		<setters>
 			<set name="keywords"></set>
@@ -597,9 +619,8 @@
 			<set name="duration">Concentration, up to 1 minute</set>
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">true</set>
-			<set name="hasMaterialComponent">true</set>
-			<set name="materialComponent">component</set>
-			<set name="isConcentration">false</set>
+			<set name="hasMaterialComponent">false</set>
+			<set name="isConcentration">true</set>
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
@@ -623,14 +644,14 @@
 		</setters>
 	</element>
 	<element name="Befuddlement" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BEFUDDLEMENT">
-		<supports>Bard, Druid, Warlock, Wizard, Spell Saving Throw</supports>
+		<supports>Bard, Druid, Warlock, Wizard, Damaging Spell, Spell Saving Throw</supports>
 		<description>
 			<p>You blast the mind of a creature that you can see within range. The target makes an Intelligence saving throw.</p>
-			<p class="indent">On a failed save, the target takes 10dl2 Psychic damage and can’t cast spells or take the Magic action. At the end of every 30 days, the target repeats the save, ending the effect on a success. The effect can also be ended by the <i>Greater Restoration, Heal</i>, or <i>Wish</i> spell.</p>
+			<p class="indent">On a failed save, the target takes 10d12 Psychic damage and can’t cast spells or take the Magic action. At the end of every 30 days, the target repeats the save, ending the effect on a success. The effect can also be ended by the <i>Greater Restoration, Heal</i>, or <i>Wish</i> spell.</p>
 			<p class="indent">On a successful save, the target takes half as much damage only.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">psychic</set>
 			<set name="level">8</set>
 			<set name="school">Enchantment</set>
 			<set name="time">Action</set>
@@ -652,12 +673,12 @@
 				<li>Choose one ability. The target has Disadvantage on ability checks and saving throws made with that ability.</li>
 				<li>The target has Disadvantage on attack rolls against you.</li>
 				<li>In combat, the target must succeed on a Wisdom saving throw at the start of each of its turns or be forced to take the Dodge action on that turn.</li>
-				<li>If you deal damage to the target with an attack roll or a spell, the target takes an extra ld8 Necrotic damage</li>
+				<li>If you deal damage to the target with an attack roll or a spell, the target takes an extra 1d8 Necrotic damage</li>
 			</ul>
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> If you cast this spell using a level 4 spell slot, you can maintain Concentration on it for up to 10 minutes. If you use a level 5+ spell slot, the spell doesn’t require Concentration, and the duration becomes 8 hours (level 5-6 slot) or 24 hours (level 7-8 slot). If you use a level 9 spell slot, the spell lasts until dispelled.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">necrotic</set>
 			<set name="level">3</set>
 			<set name="school">Necromancy</set>
 			<set name="time">Action</set>
@@ -671,19 +692,19 @@
 		</setters>
 	</element>
 	<element name="Bigby's Hand" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BIGBYS_HAND">
-		<supports>Sorcerer, Wizard, Spell Saving Throw</supports>
+		<supports>Sorcerer, Wizard, Damaging Spell, Spell Saving Throw</supports>
 		<description>
-			<p>You create a Large hand ofshimmering magical energy in an unoccupied space that you can see within range. The hand lasts for the dural ion, and it moves at your command, mimicking th- movements of your own hand.</p>
+			<p>You create a Large hand of shimmering magical energy in an unoccupied space that you can see within range. The hand lasts for the duration, and it moves at your command, mimicking the movements of your own hand.</p>
 			<p class="indent">The hand an object that has AC 20 and Hit Points equal to your Hit Point maximum. If it drops to 0 Hit Points, the spell ends. The hand doesn’t occupy its space</p>
 			<p class="indent">When you cast the spell and as a Bonus Action on your later turns, you can move the hand up to 60  feet and then cause one of the following effects: </p>
-			<p><b>Clenched Fist.</b> The hand strikes a target within 5 feet ofit. Make a melee spell attack. On a hit, the target takes 5d8 Force damage.</p>
+			<p><b>Clenched Fist.</b> The hand strikes a target within 5 feet of it. Make a melee spell attack. On a hit, the target takes 5d8 Force damage.</p>
 			<p><b>Forceful Hand.</b> The hand attempts to push a Huge or smaller creature within 5 feet of it. The target must succeed on a Strength saving throw, or the hand pushes the target up to 5 feet plus a number of feet equal to five times your spellcasting ability modifier. The hand moves with the target, remaining within 5 feet of it</p>
 			<p><b>Grasping Hand.</b> The hand attempts to grapple a Huge or smaller creature within 5 feet of it. The target must succeed on a Dexterity saving throw, or the target has the Grappled condition, with an escape DC equal to your spell save DC. While the hand grapples the target, you can take a Bonus Action to cause the hand to crush it, dealing Bludgeoning damage to the target equal to 4d6 plus your spellcasting ability modifier.</p>
 			<p><b>Interposing Hand.</b> The hand grants you Half Cover against attacks and other effects that originate from its space or that pass through it. In addition, its space counts as Difficult Terrain for your enemies</p>
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage of the Clenched Fist increases by 2d8 and the damage of the Grasping Hand increases by 2d6 for each spell slot level above 5</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">bludgeoning, force, grappled</set>
 			<set name="level">5</set>
 			<set name="school">Evocation</set>
 			<set name="time">Action</set>
@@ -698,18 +719,18 @@
 		</setters>
 	</element>
 	<element name="Blade Barrier" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BLADE_BARRIER">
-		<supports>Cleric, Spell Saving Throw</supports>
+		<supports>Cleric, Damaging Spell, Damaging Spell, Spell Saving Throw</supports>
 		<description>
-			<p>You create a wall ofwhirling blades made of magical energy. The wall appears within range and lasts for the duration. You make a straight wall up to 100 feet long, 20 feet high, and 5 feet thick, or a ringed wall up to 60 feet in diameter, 20 feet high, and 5 feet thick. The wall provides Three-Quarters Cover, and its space is Difficult Terrain.</p>
-			<p class="indent">Any creature in the wall's space makes a Dexterity saving throw, taking 6dl0 Force damage on a failed save or half much damage on a successful one. A creature also makes that save if it enters the wall’s space or end it turn there. A creature makes that save only once per turn.</p>
+			<p>You create a wall of whirling blades made of magical energy. The wall appears within range and lasts for the duration. You make a straight wall up to 100 feet long, 20 feet high, and 5 feet thick, or a ringed wall up to 60 feet in diameter, 20 feet high, and 5 feet thick. The wall provides Three-Quarters Cover, and its space is Difficult Terrain.</p>
+			<p class="indent">Any creature in the wall's space makes a Dexterity saving throw, taking 6d10 Force damage on a failed save or half much damage on a successful one. A creature also makes that save if it enters the wall’s space or end it turn there. A creature makes that save only once per turn.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">force</set>
 			<set name="level">6</set>
 			<set name="school">Evocation</set>
 			<set name="time">Action</set>
 			<set name="range">90 feet</set>
-			<set name="duration">Concentration, up to 10 mintues</set>
+			<set name="duration">Concentration, up to 10 minutes</set>
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">true</set>
 			<set name="hasMaterialComponent">false</set>
@@ -720,7 +741,7 @@
 	<element name="Blade Ward" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BLADE_WARD">
 		<supports>Bard, Sorcerer, Warlock, Wizard</supports>
 		<description>
-			<p>Whenever a creature makes an attack roll against you before the spell ends, the attacker subtracts ld4 from the attack roll.</p>
+			<p>Whenever a creature makes an attack roll against you before the spell ends, the attacker subtracts 1d4 from the attack roll.</p>
 		</description>
 		<setters>
 			<set name="keywords"></set>
@@ -732,14 +753,14 @@
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">true</set>
 			<set name="hasMaterialComponent">false</set>
-			<set name="isConcentration">false</set>
+			<set name="isConcentration">true</set>
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
 	<element name="Bless" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BLESS">
 		<supports>Cleric, Paladin, Spell Saving Throw</supports>
 		<description>
-			<p>You bless up to three creatures within range. Whenever a target makes an attack roll or a saving throw before the spell ends, the target adds ld4 to the attack roll or save.</p>
+			<p>You bless up to three creatures within range. Whenever a target makes an attack roll or a saving throw before the spell ends, the target adds 1d4 to the attack roll or save.</p>
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> You can target one additional creature for each spell slot level above 1.</p>
 		</description>
 		<setters>
@@ -758,14 +779,14 @@
 		</setters>
 	</element>
 	<element name="Blight" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BLIGHT">
-		<supports>Druid, Sorcerer, Warlock, Wizard, Spell Saving Throw</supports>
+		<supports>Druid, Sorcerer, Warlock, Wizard, Damaging Spell, Spell Saving Throw</supports>
 		<description>
 			<p>A creature that you can see within range makes a Constitution saving throw, taking 8d8 Necrotic damage on a failed save or half as much damage on a successful one. A Plant creature automatically fails the save</p>
-			<p class="indent">Alternatively, target a nonmagical plant that isn’t a creature, such as a tree orshrub. It doesn’t make a save: it simply withers and dies.</p>
-			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by ld8 for each spell slot level above 4.</p>
+			<p class="indent">Alternatively, target a nonmagical plant that isn’t a creature, such as a tree or shrub. It doesn’t make a save: it simply withers and dies.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 1d8 for each spell slot level above 4.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">necrotic</set>
 			<set name="level">4</set>
 			<set name="school">Necromancy</set>
 			<set name="time">Action</set>
@@ -779,13 +800,13 @@
 		</setters>
 	</element>
 	<element name="Blinding Smite" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BLINDING_SMITE">
-		<supports>Paladin, Spell Saving Throw</supports>
+		<supports>Paladin, Damaging Spell, Spell Saving Throw</supports>
 		<description>
-			<p>The target hit by the strike takes an extra 3d8 Radiant damage from the attack, and the target has the Blinded condition until the spell ends. At the end of each ofits turns, the Blinded target makes a Constitution saving throw, ending the spell on itself on a success.</p>
-			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The extra damage increases by ld8 for each spell slot level above 3.</p>
+			<p>The target hit by the strike takes an extra 3d8 Radiant damage from the attack, and the target has the Blinded condition until the spell ends. At the end of each of its turns, the Blinded target makes a Constitution saving throw, ending the spell on itself on a success.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The extra damage increases by 1d8 for each spell slot level above 3.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">radiant, blinded</set>
 			<set name="level">3</set>
 			<set name="school">Evocation</set>
 			<set name="time">Bonus Action, which you take immediately after hitting a creature with a Melee weapon or an Unarmed Strike</set>
@@ -801,11 +822,11 @@
 	<element name="Blindness/Deafness" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BLINDNESS_DEAFNESS">
 		<supports>Bard, Cleric, Sorcerer, Wizard, Spell Saving Throw</supports>
 		<description>
-			<p>One creature that you can see within range must succeed on a Constitution saving throw, or it has the Blinded or Deafened condition (your choice) for the duration. At the end of each ofits turns, the target repeats the save, ending the spell on itself on a success.</p>
+			<p>One creature that you can see within range must succeed on a Constitution saving throw, or it has the Blinded or Deafened condition (your choice) for the duration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.</p>
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> You can target one additional creature for each spell slot level above 2.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">blinded, deafened</set>
 			<set name="level">2</set>
 			<set name="school">Transmutation</set>
 			<set name="time">Action</set>
@@ -821,7 +842,7 @@
 	<element name="Blink" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BLINK">
 		<supports>Sorcerer, Wizard</supports>
 		<description>
-			<p>Roll ld6 at the end of each of your turns for the duration. On a roll of 4-6, you vanish from your current plane of existence and appear in the Ethereal Plane (the spell ends instantly if you are already on that plane). While on the Ethereal Plane, you can perceive the plane you left, which is cast in shades of gray, but you can’t see anything there more than 60 feet away. You can affect and be affected only by other creatures on the Ethereal Plane, and creatures on the other plane can’t perceive you unless they have a special ability that lets them perceive things on the Ethereal Plane.</p>
+			<p>Roll 1d6 at the end of each of your turns for the duration. On a roll of 4-6, you vanish from your current plane of existence and appear in the Ethereal Plane (the spell ends instantly if you are already on that plane). While on the Ethereal Plane, you can perceive the plane you left, which is cast in shades of gray, but you can’t see anything there more than 60 feet away. You can affect and be affected only by other creatures on the Ethereal Plane, and creatures on the other plane can’t perceive you unless they have a special ability that lets them perceive things on the Ethereal Plane.</p>
 			<p class="indent">You return to the other plane at the start of your next turn and when the spell ends if you are on the Ethereal Plane. You return to an unoccupied space of your choice that you can see within 10 feet of the space you left. If no unoccupied space is available within that range, you appear in the nearest unoccupied space.</p>
 		</description>
 		<setters>
@@ -853,19 +874,19 @@
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">false</set>
 			<set name="hasMaterialComponent">false</set>
-			<set name="isConcentration">false</set>
+			<set name="isConcentration">true</set>
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
 	<element name="Burning Hands" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_BURNING_HANDS">
-		<supports>Sorcerer, Wizard, Spell Saving Throw</supports>
+		<supports>Sorcerer, Wizard, Damaging Spell, Spell Saving Throw</supports>
 		<description>
 			<p>A thin sheet of flames shoots forth from you. Each creature in a 15-foot Cone makes a Dexterity saving throw, taking 3d6 Fire damage on a failed save or half as much damage on a successful one.</p>
 			<p class="indent">Flammable objects in the Cone that aren’t being worn or carried start burning.</p>
-			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by ld6 for each spell slot level above 1.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 1d6 for each spell slot level above 1.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">fire</set>
 			<set name="level">1</set>
 			<set name="school">Evocation</set>
 			<set name="time">Action</set>
@@ -879,7 +900,7 @@
 		</setters>
 	</element>
 	<element name="Call Lightning" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CALL_LIGHTNING">
-		<supports>Druid, Spell Saving Throw</supports>
+		<supports>Druid, Damaging Spell, Spell Saving Throw</supports>
 		<description>
 			<p>A storm cloud appears at a point within range that you can see above yourself. It takes the shape of a Cylinder that is 10 feet tall with a 60-foot radius.</p>
 			<p class="indent">When you cast the spell, choose a point you can see under the cloud. A lightning bolt shoots from the cloud to that point. Each creature within 5 feet of that point makes a Dexterity saving throw, taking 3d10 Lightning damage on a failed save or half as much damage on a successful one.</p>
@@ -888,7 +909,7 @@
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 1d10 for each spell slot level above 3.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">lightning</set>
 			<set name="level">3</set>
 			<set name="school">Conjuration</set>
 			<set name="time">time</set>
@@ -911,7 +932,7 @@
 			</ul>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">charmed, frightened</set>
 			<set name="level">2</set>
 			<set name="school">Enchantment</set>
 			<set name="time">Action</set>
@@ -925,14 +946,14 @@
 		</setters>
 	</element>
 	<element name="Chain Lightning" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CHAIN_LIGHTNING">
-		<supports>Sorcerer, Wizard, Spell Saving Throw</supports>
+		<supports>Sorcerer, Wizard, Damaging Spell, Spell Saving Throw</supports>
 		<description>
 			<p>You launch a lightning bolt toward a target you can see within range. Three bolts then leap from that target to as many as three other targets of your choice, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts.</p>
 			<p class="indent">Each target makes a Dexterity saving throw, taking 10d8 Lightning damage on a failed save or half as much damage on a successful one.</p>
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> One additional bolt leaps from the first target to another target for each spell slot level above 6.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">lightning</set>
 			<set name="level">6</set>
 			<set name="school">Evocation</set>
 			<set name="time">Action</set>
@@ -952,7 +973,7 @@
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> You can target one additional creature for each spell slot level above 4.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">charmed</set>
 			<set name="level">4</set>
 			<set name="school">Enchantment</set>
 			<set name="time">Action</set>
@@ -972,7 +993,7 @@
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> You can target one additional creature for each spell slot level above 1.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">charmed</set>
 			<set name="level">1</set>
 			<set name="school">Enchantment</set>
 			<set name="time">Action</set>
@@ -986,13 +1007,13 @@
 		</setters>
 	</element>
 	<element name="Chill Touch" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CHILL_TOUCH">
-		<supports>Sorcerer, Warlock, Wizard</supports>
+		<supports>Sorcerer, Warlock, Wizard, Melee, Spell Attack, Damaging Spell</supports>
 		<description>
 			<p>Channeling the chill of the grave, make a melee spell attack against a target within reach. On a hit, the target takes 1d10 Necrotic damage, and it can't regain Hit Points until the end of your next turn.</p>
 			<p class="indent"><b><i>Cantrip Upgrade.</i></b> The damage increases by 1d10 when you reach levels 5 (2d10), 11 (3d10), and 17 (4d10).</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">necrotic</set>
 			<set name="level">0</set>
 			<set name="school">Necromancy</set>
 			<set name="time">Action</set>
@@ -1006,14 +1027,14 @@
 		</setters>
 	</element>
 	<element name="Chromatic Orb" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CHROMATIC_ORB">
-		<supports>Sorcerer, Wizard, Ranged</supports>
+		<supports>Sorcerer, Wizard, Ranged, Spell Attack, Damaging Spell</supports>
 		<description>
 			<p>You hurl an orb of energy at a target within range. Choose Acid, Cold, Fire, Lightning, Poison, or Thunder for the type of orb you create, and then make a ranged spell attack against the target. On a hit, the target takes 3d8 damage of the chosen type.</p>
 			<p class="indent">If you roll the same number on two or more of the d8s, the orb leaps to a different target of your choice within 30 feet of the target. Make an attack roll against the new target, and make a new damage roll. The orb can't leap again unless you cast the spell with a level 2+ spell slot.</p>
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 1d8 for each spell slot level above 1. The orb can leap a maximum number of times equal to the level of the slot expended, and a creature can be targeted only once by each casting of this spell.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">acid, cold, fire, lightning, poison, thunder</set>
 			<set name="level">1</set>
 			<set name="school">Evocation</set>
 			<set name="time">Action</set>
@@ -1028,13 +1049,13 @@
 		</setters>
 	</element>
 	<element name="Circle of Death" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CIRCLE_OF_DEATH">
-		<supports>Sorcerer, Warlock, Wizard, Spell Saving Throw</supports>
+		<supports>Sorcerer, Warlock, Wizard, Damaging Spell, Spell Saving Throw</supports>
 		<description>
 			<p>Negative energy ripples out in a 60-foot-radius Sphere from a point you choose within range. Each creature in that area makes a Constitution saving throw, taking 8d8 Necrotic damage on a failed save or half as much damage on a successful one.</p>
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 2d8 for each spell slot level above 6.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">necrotic</set>
 			<set name="level">6</set>
 			<set name="school">Necromancy</set>
 			<set name="time">Action</set>
@@ -1049,7 +1070,7 @@
 		</setters>
 	</element>
 	<element name="Circle of Power" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CIRCLE_OF_POWER">
-		<supports>Cleric, Paladin, Wizard, Spell Saving Throw</supports>
+		<supports>Cleric, Paladin, Wizard</supports>
 		<description>
 			<p>An aura radiates from you in a 30-foot Emanation for the duration. While in the aura, you and your allies have Advantage on saving throws against spells and other magical effects. When an affected creature makes a saving throw against a spell or magical effect that allows a save to take only half damage, it takes no damage if it succeeds on the save.</p>
 		</description>
@@ -1111,14 +1132,14 @@
 		</setters>
 	</element>
 	<element name="Cloud of Daggers" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CLOUD_OF_DAGGERS">
-		<supports>Bard, Sorcerer, Warlock, Wizard</supports>
+		<supports>Bard, Sorcerer, Warlock, Wizard, Damaging Spell</supports>
 		<description>
 			<p>You conjure spinning daggers in a 5-foot Cube centered on a point within range. Each creature in that area takes 4d4 Slashing damage. A creature also takes this damage if it enters the Cube or ends its turn there or if the Cube moves into its space. A creature takes this damage only once per turn.</p>
 			<p class="indent">On your later turns, you can take a Magic action to teleport the Cube up to 30 feet.</p>
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 2d4 for each spell slot level above 2.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">slashing</set>
 			<set name="level">2</set>
 			<set name="school">Conjuration</set>
 			<set name="time">Action</set>
@@ -1128,12 +1149,12 @@
 			<set name="hasSomaticComponent">true</set>
 			<set name="hasMaterialComponent">true</set>
 			<set name="materialComponent">a sliver of glass</set>
-			<set name="isConcentration">false</set>
+			<set name="isConcentration">true</set>
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
 	<element name="Cloudkill" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CLOUDKILL">
-		<supports>Sorcerer, Wizard, Spell Saving Throw</supports>
+		<supports>Sorcerer, Wizard, Damaging Spell, Spell Saving Throw</supports>
 		<description>
 			<p>You create a 20-foot-radius Sphere of yellow-green fog centered on a point within range. The fog lasts for the duration or until strong wind (such as the one created by Gust of Wind) disperses it, ending the spell. Its area is Heavily Obscured.</p>
 			<p class="indent">Each creature in the Sphere makes a Constitution saving throw, taking 5d8 Poison damage on a failed save or half as much damage on a successful one. A creature must also make this save when the Sphere moves into its space and when it enters the Sphere or ends its turn there. A creature makes this save only once per turn.</p>
@@ -1141,7 +1162,7 @@
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 1d8 for each spell slot level above 5.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">poison</set>
 			<set name="level">5</set>
 			<set name="school">Conjuration</set>
 			<set name="time">Action</set>
@@ -1150,7 +1171,7 @@
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">true</set>
 			<set name="hasMaterialComponent">false</set>
-			<set name="isConcentration">false</set>
+			<set name="isConcentration">true</set>
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
@@ -1160,7 +1181,7 @@
 			<p>You launch a dazzling array of flashing, colorful light. Each creature in a 15-foot Cone originating from you must succeed on a Constitution saving throw or have the Blinded condition until the end of your next turn.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">blinded</set>
 			<set name="level">1</set>
 			<set name="school">Illusion</set>
 			<set name="time">Action</set>
@@ -1188,7 +1209,7 @@
 		<setters>
 			<set name="keywords"></set>
 			<set name="level">1</set>
-			<set name="school">Enchanment</set>
+			<set name="school">Enchantment</set>
 			<set name="time">Action</set>
 			<set name="range">60 feet</set>
 			<set name="duration">Instantaneous</set>
@@ -1238,7 +1259,7 @@
 		<setters>
 			<set name="keywords"></set>
 			<set name="level">5</set>
-			<set name="school">Divnination</set>
+			<set name="school">Divination</set>
 			<set name="time">1 minute or Ritual</set>
 			<set name="range">Self</set>
 			<set name="duration">1 minute</set>
@@ -1296,7 +1317,7 @@
 			<p class="indent">For the duration, you can take a Bonus Action to designate a direction that is horizontal to you. Each Charmed target must use as much of its movement as possible to move in that direction on its next turn, taking the safest route. After moving in this way, a target repeats the save, ending the spell on itself on a success.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">charmed</set>
 			<set name="level">4</set>
 			<set name="school">Enchantment</set>
 			<set name="time">Action</set>
@@ -1313,10 +1334,10 @@
 		<supports>Druid, Sorcerer, Wizard, Spell Saving Throw, Damaging Spell</supports>
 		<description>
 			<p>You unleash a blast of cold air. Each creature in a 60-foot Cone originating from you makes a Constitution saving throw, taking 8d8 Cold damage on a failed save or half as much damage on a successful one. A creature killed by this spell becomes a frozen statue until it thaws.</p>
-			<p class="indent"><b><u>Using a Higher-Level Spell Slot.</u></b> The damage increases by 1d8 for each spell slot level above 5.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 1d8 for each spell slot level above 5.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">cold</set>
 			<set name="level">5</set>
 			<set name="school">Evocation</set>
 			<set name="time">Action</set>
@@ -1345,7 +1366,7 @@
 				<tr><td>4</td><td>The target chooses its behavior.</td></tr>
 			</table>
 			<p class="indent">At the end of each of its turns, an affected target repeats the save, ending the spell on itself on a success.</p>
-			<p class="indent"><b><u>Using a Higher-Level Spell Slot.</u></b> The Sphere's radius increases by 5 feet for each spell slot level above 4.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The Sphere's radius increases by 5 feet for each spell slot level above 4.</p>
 		</description>
 		<setters>
 			<set name="keywords"></set>
@@ -1363,15 +1384,15 @@
 		</setters>
 	</element>
 	<element name="Conjure Animals" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CONJURE_ANIMALS">
-		<supports>Druid, Ranger, Spell Saving Throw</supports>
+		<supports>Druid, Ranger, Damaging Spell, Spell Saving Throw</supports>
 		<description>
 			<p>You conjure nature spirits that appear as a Large pack of spectral, intangible animals in an unoccupied space you can see within range. The pack lasts for the duration, and you choose the spirits' animal form, such as wolves, serpents, or birds.</p>
 			<p class="indent">You have Advantage on Strength saving throws while you're within 5 feet of the pack, and when you move on your turn, you can also move the pack up to 30 feet to an unoccupied space you can see.</p>
 			<p class="indent">Whenever the pack moves within 10 feet of a creature you can see and whenever a creature you can see enters a space within 10 feet of the pack or ends its turn there, you can force that creature to make a Dexterity saving throw. On a failed save, the creature takes 3d10 Slashing damage. A creature makes this save only once per turn.</p>
-			<p class="indent"><b><u>Using a Higher-Level Spell Slot.</u></b> The damage increases by 1d10 for each spell slot level above 3.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 1d10 for each spell slot level above 3.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">slashing</set>
 			<set name="level">3</set>
 			<set name="school">Conjuration</set>
 			<set name="time">Action</set>
@@ -1385,10 +1406,10 @@
 		</setters>
 	</element>
 	<element name="Conjure Barrage" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CONJURE_BARRAGE">
-		<supports>Ranger, Spell Saving Throw</supports>
+		<supports>Ranger, Damaging Spell, Spell Saving Throw</supports>
 		<description>
 			<p>You brandish the weapon used to cast the spell and conjure similar spectral weapons (or ammunition appropriate to the weapon) that launch forward and then disappear. Each creature of your choice that you can see in a 60-foot Cone makes a Dexterity saving throw, taking 5d8 Force damage on a failed save or half as much damage on a successful one.</p>
-			<p class="indent"><b><u>Using a Higher-Level Spell Slot.</u></b> The damage increases by 1d8 for each spell slot level above 3.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 1d8 for each spell slot level above 3.</p>
 		</description>
 		<setters>
 			<set name="keywords"></set>
@@ -1406,17 +1427,17 @@
 		</setters>
 	</element>
 	<element name="Conjure Celestial" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CONJURE_CELESTIAL">
-		<supports>Cleric, Spell Saving Throw, Damaging Spell</supports>
+		<supports>Cleric, Spell Saving Throw, Damaging Spell, Healing Spell</supports>
 		<description>
 			<p>You conjure a spirit from the Upper Planes, which manifests as a pillar of light in a 10-foot-radius, 40-foot-high Cylinder centered on a point within range. For each creature you can see in the Cylinder, choose which of these lights shines on it:</p>
 			<p><b>Healing Light.</b> The target regains Hit Points equal to 4d12 plus your spellcasting ability modifier.</p>
 			<p><b>Searing Light.</b> The target makes a Dexterity saving throw, taking 6d12 Radiant damage on a failed save or half as much damage on a successful one. </p>
 			<p>Until the spell ends, Bright Light fills the Cylinder, and when you move on your turn, you can also move the Cylinder up to 30 feet.</p>
 			<p class="indent">Whenever the Cylinder moves into the space of a creature you can see and whenever a creature you can see enters the Cylinder or ends its turn there, you can bathe it in one of the lights. A creature can be affected by this spell only once per turn.</p>
-			<p class="indent"><b><u>Using a Higher-Level Spell Slot.</u></b> The healing and damage increase by ldl2 for each spell slot level above 7.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The healing and damage increase by 1d12 for each spell slot level above 7.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">healing, radiant</set>
 			<set name="level">7</set>
 			<set name="school">Conjuration</set>
 			<set name="time">Action</set>
@@ -1434,10 +1455,10 @@
 		<description>
 			<p>You conjure a Large, intangible spirit from the Elemental Planes that appears in an unoccupied space within range. Choose the spirit's element, which determines its damage type: air (Lightning), earth (Thunder), fire (Fire), or water (Cold). The spirit lasts for the duration.</p>
 			<p class="indent">Whenever a creature you can see enters the spirit's space or starts its turn within 5 feet of the spirit, you can force that creature to make a Dexterity saving throw if the spirit has no creature Restrained. On failed save, the target takes 8d8 damage of the spirit's type, and the target has the Restrained condition until the spell ends. At the start of each of its turns, the Restrained target repeats the save. On a failed save, the target takes 4d8 damage of the spirit's type. On a successful save, the target isn't Restrained by the spirit.</p>
-			<p class="indent"><b><u>Using a Higher-Level Spell Slot.</u></b> The damage increases by 2d8 for each spell slot level above 5.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 2d8 for each spell slot level above 5.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">lightning, thunder, fire, cold, restrained</set>
 			<set name="level">5</set>
 			<set name="school">Conjuration</set>
 			<set name="time">time</set>
@@ -1451,14 +1472,14 @@
 		</setters>
 	</element>
 	<element name="Conjure Fey" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CONJURE_FEY">
-		<supports>Druid</supports>
+		<supports>Druid, Damaging Spell, Melee, Spell Attack</supports>
 		<description>
 			<p>You conjure a Medium spirit from the Feywild in an unoccupied space you can see within range. The spirit lasts for the duration, and it looks like a Fey creature of your choice. When the spirit appears, you can make one melee spell attack against a creature within 5 feet of it. On a hit, the target takes Psychic damage equal to 3d12 plus your spellcasting ability modifier, and the target has the Frightened condition until the start of your next turn, with both you and the spirit as the source of the fear.</p>
 			<p class="indent">As a Bonus Action on your later turns, you can teleport the spirit to an unoccupied space you can see within 30 feet of the space it left and make the attack against a creature within 5 feet of it.</p>
-			<p class="indent"><b><u>Using a Higher-Level Spell Slot.</u></b> The damage increases by 2d12 for each spell slot level above 6.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 2d12 for each spell slot level above 6.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">psychic, frightened</set>
 			<set name="level">6</set>
 			<set name="school">Conjuration</set>
 			<set name="time">Action</set>
@@ -1472,14 +1493,14 @@
 		</setters>
 	</element>
 	<element name="Conjure Minor Elementals" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_CONJURE_MINOR_ELEMENTALS">
-		<supports>Druid, Wizard</supports>
+		<supports>Druid, Wizard, Damaging Spell</supports>
 		<description>
 			<p>You conjure spirits from the Elemental Planes that flit around you in a 15-foot Emanation for the duration. Until the spell ends, any attack you make deals an extra 2d8 damage when you hit a creature in the Emanation. This damage is Acid, Cold, Fire, or Lightning (your choice when you make the attack).</p>
 			<p class="indent">In addition, the ground in the Emanation is Difficult Terrain for your enemies.</p>
-			<p class="indent"><b><u>Using a Higher-Level Spell Slot.</u></b> The damage increases by 2d8 for each spell slot level above 4.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 2d8 for each spell slot level above 4.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">acid, cold, fire, lightning, difficult terrain</set>
 			<set name="level">4</set>
 			<set name="school">Conjuration</set>
 			<set name="time">Action</set>
@@ -1498,7 +1519,7 @@
 			<p>You brandish the weapon used to cast the spell and choose a point within range. Hundreds of similar spectral weapons (or ammunition appropriate to the weapon) fall in a volley and then disappear. Each creature of your choice that you can see in a 40-foot-radius, 20-foot-high Cylinder centered on that point makes a Dexterity saving throw. A creature takes 8d8 Force damage on a failed save or half as much damage on a successful one.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">force</set>
 			<set name="level">5</set>
 			<set name="school">Conjuration</set>
 			<set name="time">Action</set>
@@ -1517,10 +1538,10 @@
 		<description>
 			<p>You conjure nature spirits that flit around you in a 10-foot Emanation for the duration. Whenever the Emanation enters the space of a creature you can see and whenever a creature you can see enters the Emanation or ends its turn there, you can force that creature to make a Wisdom saving throw. The creature takes 5d8 Force damage on a failed save or half as much damage on a successful one. A creature makes this save only once per turn.</p>
 			<p class="indent">In addition, you can take the Disengage action as a Bonus Action for the spell's duration.</p>
-			<p class="indent"><b><u>Using a Higher-Level Spell Slot.</u></b> The damage increases by 1d8 for each spell slot level above 4.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The damage increases by 1d8 for each spell slot level above 4.</p>
 		</description>
 		<setters>
-			<set name="keywords">emanation</set>
+			<set name="keywords">emanation, force</set>
 			<set name="level">4</set>
 			<set name="school">Conjuration</set>
 			<set name="time">Action</set>
@@ -1540,7 +1561,7 @@
 			<p class="indent">On a failed save, you take 6d6 Psychic damage and have the Incapacitated condition until you finish a Long Rest. A Greater Restoration spell cast on you ends this effect.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">psychic, incapacitated</set>
 			<set name="level">5</set>
 			<set name="school">Divination</set>
 			<set name="time">1 minute or Ritual</set>
@@ -1561,7 +1582,7 @@
 			<p class="indent">Whenever the Poisoned target receives an effect that would end the Poisoned condition, the target must succeed on a Constitution saving throw, or the Poisoned condition doesn't end on it.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">poisoned</set>
 			<set name="level">5</set>
 			<set name="school">Necromancy</set>
 			<set name="time">Action</set>
@@ -1627,7 +1648,7 @@
 			<p class="indent"><b>Whirlpool.</b> You cause a whirlpool to form in the center of the area, which must be at least 50 feet square and 25 feet deep. The whirlpool lasts until you choose a different effect or the spell ends. The whirlpool is 5 feet wide at the base, up to 50 feet wide at the top, and 25 feet tall. Any creature in the water and within 25 feet of the whirlpool is pulled 10 feet toward it. When a creature enters the whirlpool for the first time on a turn or ends its turn there, it makes a Strength saving throw. On a failed save, the creature takes 2d8 Bludgeoning damage. On a successful save, the creature takes half as much damage. A creature can swim away from the whirlpool only if it first takes an action to pull away and succeeds on a Strength (Athletics) check against your spell save DC.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">bludgeoning</set>
 			<set name="level">4</set>
 			<set name="school">Transmutation</set>
 			<set name="time">Action</set>
@@ -1656,7 +1677,7 @@
 				<tr><td>2</td><td>Light Clouds</td></tr>
 				<tr><td>3</td><td>Overcast or ground fog</td></tr>
 				<tr><td>4</td><td>Rain, hail, or snow</td></tr>
-				<tr><td>5</td><td>Torriental rain, driving hail, or blizzard</td></tr>
+				<tr><td>5</td><td>Torrential rain, driving hail, or blizzard</td></tr>
 			</table>
 			<h5>Temperature</h5>
 			<table>
@@ -1702,7 +1723,7 @@
 		<description>
 			<p>You touch up to four nonmagical Arrows or Bolts and plant them in the ground in your space. Until the spell ends, the ammunition can't be physically uprooted, and whenever a creature other than you enters a space within 30 feet of the ammunition for the first time on a turn or ends its turn there, one piece of ammunition flies up to strike it. The creature must succeed on a Dexterity saving throw or take 2d4 Piercing damage. The piece of ammunition is then destroyed. The spell ends when none of the ammunition remains planted in the ground.</p>
 			<p class="indent">When you cast this spell, you can designate any creatures you choose, and the spell ignores them.</p>
-			<p class="indent"><b><u>Using a Higher-Level Spell Slot.</u></b> The amount of ammunition that can be affected increases by two for each spell slot level above 2.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> The amount of ammunition that can be affected increases by two for each spell slot level above 2.</p>
 		</description>
 		<setters>
 			<set name="keywords"></set>
@@ -1761,9 +1782,9 @@
 		<supports>Cleric, Druid</supports>
 		<description>
 			<p>You do one of the following:</p>
-			<p><b>Create Water:</b> You create up to 10 gallons of clean water within range in an open container. Alternatively, the water falls as rain in a 30-foot Cube within range, extinguishing exposed flames there.</p>
-			<p><b>Destory Water:</b> You destroy up to 10 gallons of water in an open container within range. Alternatively, you destroy fog in a 30-foot Cube within range.</p>
-			<p class="indent"><b><u>Using a Higher-Level Spell Slot.</u></b> You create or destroy 10 additional gallons of water, or the size of the Cube increases by 5 feet, for each spell slot level above 1.</p>
+			<p class="indent"><b>Create Water.</b> You create up to 10 gallons of clean water within range in an open container. Alternatively, the water falls as rain in a 30-foot Cube within range, extinguishing exposed flames there.</p>
+			<p class="indent"><b>Destroy Water.</b> You destroy up to 10 gallons of water in an open container within range. Alternatively, you destroy fog in a 30-foot Cube within range.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> You create or destroy 10 additional gallons of water, or the size of the Cube increases by 5 feet, for each spell slot level above 1.</p>
 		</description>
 		<setters>
 			<set name="keywords"></set>
@@ -1786,10 +1807,10 @@
 			<p>You can cast this spell only at night. Choose up to three corpses of Medium or Small Humanoids within range. Each one becomes a Ghoul under your control (see the Monster Manual for its stat block).</p>
 			<p class="indent">As a Bonus Action on each of your turns, you can mentally command any creature you animated with this spell if the creature is within 120 feet of you (if you control multiple creatures, you can command any of them at the same time, issuing the same command to them). You decide what action the creature will take and where it will move on its next turn, or you can issue a general command, such as to guard a particular place. If you issue no commands, the creature takes the Dodge action and moves only to avoid harm. Once given an order, the creature continues to follow the order until its task is complete.</p>
 			<p class="indent">The creature is under your control for 24 hours, after which it stops obeying any command you've given it. To maintain control of the creature for another 24 hours, you must cast this spell on the creature before the current 24-hour period ends. This use of the spell reasserts your control over up to three creatures you have animated with this spell rather than animating new ones.</p>
-			<p class="indent"><b><u>Using a Higher-Level Spell Slot.</u></b> If you use a level 7 spell slot, you can animate or reassert control over four Ghouls. If you use a level 8 spell slot, you can animate or reassert control over five Ghouls or two Ghasts or Wights. If you use a level 9 spell slot, you can animate or reassert control over six Ghouls, three Ghasts or Wights, or two Mummies. See the Monster Manual for these stat blocks.</p>
+			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> If you use a level 7 spell slot, you can animate or reassert control over four Ghouls. If you use a level 8 spell slot, you can animate or reassert control over five Ghouls or two Ghasts or Wights. If you use a level 9 spell slot, you can animate or reassert control over six Ghouls, three Ghasts or Wights, or two Mummies. See the Monster Manual for these stat blocks.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">summon</set>
 			<set name="level">6</set>
 			<set name="school">Necromancy</set>
 			<set name="time">1 minute</set>
@@ -1905,7 +1926,7 @@
 			<p class="indent">As a Bonus Action, you can move the lights up to 60 feet to a space within range. A light must be within 20 feet of another light created by this spell, and a light vanishes if it exceeds the spell's range.</p>
 		</description>
 		<setters>
-			<set name="keywords">cantrip</set>
+			<set name="keywords"></set>
 			<set name="level">0</set>
 			<set name="school">Illusion</set>
 			<set name="time">Action</set>
@@ -1984,13 +2005,13 @@
 		</setters>
 	</element>
 	<element name="Death Ward" type="Spell" source="Player’s Handbook 2024" id="ID_WOTC_PHB24_SPELL_DEATH_WARD">
-		<supports>Cleric, Paladin</supports>
+		<supports>Cleric, Paladin, Healing Spell</supports>
 		<description>
 			<p>You touch a creature and grant it a measure of protection from death. The first time the target would drop to 0 Hit Points before the spell ends, the target instead drops to 1 Hit Point, and the spell ends.</p>
 			<p class="indent">If the spell is still in effect when the target is subjected to an effect that would kill it instantly without dealing damage, that effect is negated against the target, and the spell ends.</p>
 		</description>
 		<setters>
-			<set name="keywords"></set>
+			<set name="keywords">healing</set>
 			<set name="level">4</set>
 			<set name="school">Abjuration</set>
 			<set name="time">Action</set>
@@ -2525,7 +2546,7 @@
 			<p class="indent"><b><i>Fire Play.</i></b> You light or snuff out a candle, a torch, or a campfire.</p>
 		</description>
 		<setters>
-			<set name="keywords">cantrip</set>
+			<set name="keywords"></set>
 			<set name="level">0</set>
 			<set name="school">Transmutation</set>
 			<set name="time">Action</set>
@@ -2617,7 +2638,7 @@
 			<p class="indent"><strong><em>Sculpt Element.</em></strong> You cause dirt, sand, fire, smoke, mist, or water that can fit in a 1-foot Cube to assume a crude shape (such as that of a creature) for 1 hour.</p>
 		</description>
 		<setters>
-			<set name="keywords">cantrip</set>
+			<set name="keywords"></set>
 			<set name="level">0</set>
 			<set name="school">Transmutation</set>
 			<set name="time">Action</set>
@@ -3080,7 +3101,7 @@
 			<p class="indent"><b><i>Cantrip Upgrade.</i></b> The damage increases by 1d10 when you reach levels 5 (2d10), 11 (3d10), and 17 (4d10).</p>
 		</description>
 		<setters>
-			<set name="keywords">fire, cantrip</set>
+			<set name="keywords">fire</set>
 			<set name="level">0</set>
 			<set name="school">Evocation</set>
 			<set name="time">Action</set>
@@ -3408,7 +3429,7 @@
 			<p class="indent">The spell ends early if the target takes damage or if you make an attack roll, deal damage, or force anyone to make a saving throw. When the spell ends, the target knows it was Charmed by you.</p>
 		</description>
 		<setters>
-			<set name="keywords">charmed, cantrip</set>
+			<set name="keywords">charmed</set>
 			<set name="level">0</set>
 			<set name="school">Enchantment</set>
 			<set name="time">Action</set>
@@ -3780,7 +3801,7 @@
 			<p>You touch a willing creature and choose a skill. Until the spell ends, the creature adds 1d4 to any ability check using the chosen skill.</p>
 		</description>
 		<setters>
-			<set name="keywords">cantrip</set>
+			<set name="keywords"></set>
 			<set name="level">0</set>
 			<set name="school">Divination</set>
 			<set name="time">Action</set>
@@ -3849,13 +3870,13 @@
 			<set name="level">1</set>
 			<set name="school">Conjuration</set>
 			<set name="time">Bonus Action, which you take immediately after hitting a creature with a Ranged weapon</set>
-			<set name="duration">Concentration, up to 1 minute</set>
+			<set name="duration">Instantaneous</set>
 			<set name="range">Self</set>
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">false</set>
 			<set name="hasMaterialComponent">false</set>
 			<set name="materialComponent" />
-			<set name="isConcentration">true</set>
+			<set name="isConcentration">false</set>
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
@@ -4088,7 +4109,7 @@
 			<p class="indent"><b><i>Using a Higher-Level Spell Slot.</i></b> Your Concentration can last longer with a spell slot of level 2 (up to 4 hours), 3-4 (up to 8 hours), or 5+ (24 hours).</p>
 		</description>
 		<setters>
-			<set name="keywords">necrotic,curse</set>
+			<set name="keywords">necrotic, curse</set>
 			<set name="level">1</set>
 			<set name="school">Enchantment</set>
 			<set name="time">Bonus Action</set>
@@ -4611,7 +4632,7 @@
 			<p class="indent">Covering the object with something opaque blocks the light. The spell ends if you cast it again.</p>
 		</description>
 		<setters>
-			<set name="keywords">cantrip</set>
+			<set name="keywords"></set>
 			<set name="level">0</set>
 			<set name="school">Evocation</set>
 			<set name="time">Action</set>
@@ -4637,13 +4658,13 @@
 			<set name="level">3</set>
 			<set name="school">Transmutation</set>
 			<set name="time">Bonus Action, which you take immediately after hitting or missing a target with a ranged attack using a weapon</set>
-			<set name="duration">Concentration, up to 1 minute</set>
+			<set name="duration">Instantaneous</set>
 			<set name="range">Self</set>
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">true</set>
 			<set name="hasMaterialComponent">false</set>
 			<set name="materialComponent" />
-			<set name="isConcentration">true</set>
+			<set name="isConcentration">false</set>
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
@@ -5177,7 +5198,7 @@
 			<p class="indent"><b><i>Cantrip Upgrade.</i></b> The damage increases by 1d6 when you reach levels 5 (2d6), 11 (3d6), and 17 (4d6).</p>
 		</description>
 		<setters>
-			<set name="keywords">psychic, cantrip</set>
+			<set name="keywords">psychic</set>
 			<set name="level">0</set>
 			<set name="school">Enchantment</set>
 			<set name="time">Action</set>
@@ -5221,7 +5242,7 @@
 			<p class="indent"><b><i>Image.</i></b> If you create an image of an object—such as a chair, muddy footprints, or a small chest—it must be no larger than a 5-foot Cube. The image can't create sound, light, smell, or any other sensory effect. Physical interaction with the image reveals it to be an illusion, since things can pass through it.</p>
 		</description>
 		<setters>
-			<set name="keywords">cantrip</set>
+			<set name="keywords"></set>
 			<set name="level">0</set>
 			<set name="school">Illusion</set>
 			<set name="time">Action</set>
@@ -5804,7 +5825,7 @@
 			<p class="indent"><b><i>Cantrip Upgrade</i></b> The damage increases by 1d12 when you reach levels 5 (2d12), 11 (3d12), and 17 (4d12).</p>
 		</description>
 		<setters>
-			<set name="keywords">poison, cantrip</set>
+			<set name="keywords">poison</set>
 			<set name="level">0</set>
 			<set name="school">Necromancy</set>
 			<set name="time">Action</set>
@@ -5935,7 +5956,7 @@
 			<p class="indent"><b><i>Minor Creation.</i></b> You create a nonmagical trinket or an illusory image that can fit in your hand. It lasts until the end of your next turn. A trinket can deal no damage and has no monetary worth.</p>
 		</description>
 		<setters>
-			<set name="keywords">cantrip</set>
+			<set name="keywords"></set>
 			<set name="level">0</set>
 			<set name="school">Transmutation</set>
 			<set name="time">Action</set>
@@ -6023,7 +6044,7 @@
 			<p class="indent"><b><i>Cantrip Upgrade.</i></b> The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).</p>
 		</description>
 		<setters>
-			<set name="keywords">fire, cantrip</set>
+			<set name="keywords">fire</set>
 			<set name="level">0</set>
 			<set name="school">Conjuration</set>
 			<set name="time">Bonus Action</set>
@@ -6350,7 +6371,7 @@
 			<p>You touch a willing creature and choose a damage type: Acid, Bludgeoning, Cold, Fire, Lightning, Necrotic, Piercing, Poison, Radiant, Slashing, or Thunder. When the creature takes damage of the chosen type before the spell ends, the creature reduces the total damage taken by 1d4. A creature can benefit from this spell only once per turn.</p>
 		</description>
 		<setters>
-			<set name="keywords">cantrip, acid, bludgeoning, cold, fire, lightning, necrotic, piercing, poison, radiant, slashing, thunder</set>
+			<set name="keywords">acid, bludgeoning, cold, fire, lightning, necrotic, piercing, poison, radiant, slashing, thunder</set>
 			<set name="level">0</set>
 			<set name="school">Abjuration</set>
 			<set name="time">Action</set>
@@ -6456,7 +6477,7 @@
 			<p class="indent"><b><i>Cantrip Upgrade.</i></b> The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).</p>
 		</description>
 		<setters>
-			<set name="keywords">radiant, cantrip</set>
+			<set name="keywords">radiant</set>
 			<set name="level">0</set>
 			<set name="school">Evocation</set>
 			<set name="time">Action</set>
@@ -6945,7 +6966,7 @@
 			<p class="indent"><b><i>Cantrip Upgrade.</i></b> The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).</p>
 		</description>
 		<setters>
-			<set name="keywords">cantrip, acid, cold, fire, lightning, poison, psychic, thunder</set>
+			<set name="keywords">acid, cold, fire, lightning, poison, psychic, thunder</set>
 			<set name="level">0</set>
 			<set name="school">Evocation</set>
 			<set name="time">Action</set>
@@ -7159,7 +7180,7 @@
 			<p class="indent"><b><i>Cantrip Upgrade.</i></b> The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).</p>
 		</description>
 		<setters>
-			<set name="keywords">radiant, cantrip</set>
+			<set name="keywords">radiant</set>
 			<set name="level">0</set>
 			<set name="school">Evocation</set>
 			<set name="time">Action</set>
@@ -7660,7 +7681,7 @@
 			<set name="hasSomaticComponent">true</set>
 			<set name="hasMaterialComponent">true</set>
 			<set name="materialComponent">a gilded ladle worth 500+ GP</set>
-			<set name="isConcentration">true</set>
+			<set name="isConcentration">false</set>
 			<set name="isRitual">false</set>
 		</setters>
 	</element>
@@ -7901,7 +7922,7 @@
 			<set name="level">1</set>
 			<set name="school">Evocation</set>
 			<set name="time">Bonus Action, which you take immediately after hitting a target with a Melee weapon or an Unarmed Strike</set>
-			<set name="duration">Concentration, up to 1 minute</set>
+			<set name="duration">Instantaneous</set>
 			<set name="range">Self</set>
 			<set name="hasVerbalComponent">true</set>
 			<set name="hasSomaticComponent">false</set>
@@ -7961,7 +7982,7 @@
 			<p class="indent"><b><i>Cantrip Upgrade.</i></b> The damage increases by one die when you reach levels 5 (2d8 or 2d12), 11 (3d8 or 3d12), and 17 (4d8 or 4d12).</p>
 		</description>
 		<setters>
-			<set name="keywords">necrotic, cantrip</set>
+			<set name="keywords">necrotic</set>
 			<set name="level">0</set>
 			<set name="school">Necromancy</set>
 			<set name="time">Action</set>
@@ -8113,7 +8134,7 @@
 			<p class="indent"><b><i>Cantrip Upgrade.</i></b> Whether you deal Radiant damage or the weapon's normal damage type, the attack deals extra Radiant damage when you reach levels 5 (1d6), 11 (2d6), and 17 (3d6).</p>
 		</description>
 		<setters>
-			<set name="keywords">force, cantrip</set>
+			<set name="keywords">force</set>
 			<set name="level">0</set>
 			<set name="school">Divination</set>
 			<set name="time">Action</set>
@@ -8201,7 +8222,7 @@
 			<p class="indent"><b><i>Cantrip Upgrade.</i></b> The damage increases by 1d6 when you reach levels 5 (2d6), 11 (3d6), and 17 (4d6).</p>
 		</description>
 		<setters>
-			<set name="keywords">psychic, cantrip</set>
+			<set name="keywords">psychic</set>
 			<set name="level">0</set>
 			<set name="school">Enchantment</set>
 			<set name="time">Action</set>
@@ -8965,7 +8986,7 @@
 				<li><strong>CR</strong> None (XP 0; PB equals your Proficiency Bonus)</li>
 			</ul>
 			<h4 class="caption">TRAITS</h4>
-			<p><strong><em>Festering Aura (Putrid Only).</em></strong> <i>Constitution Saving Throw:</i> DC equals your spell save DC, any creature (other than you) that starts its turn within a 5-foot Emanation originating from the spirit. <i>Failure:</i> The creature has the Poisoned condntion until the start of its turn.</p>
+			<p><strong><em>Festering Aura (Putrid Only).</em></strong> <i>Constitution Saving Throw:</i> DC equals your spell save DC, any creature (other than you) that starts its turn within a 5-foot Emanation originating from the spirit. <i>Failure:</i> The creature has the Poisoned condition until the start of its turn.</p>
 			<p><strong><em>Incorporeal Passage (Ghostly Only).</em></strong> The spirit can move through other creatures and objects as if they were Difficult Terrain. If it ends its turn inside an object, it is shunted to the nearest unoccupied space and takes 1d10 Force damage for every 5 feet traveled.</p>
 			<h4 class="caption">ACTIONS</h4>
 			<p><strong><em>Multiattack.</em></strong> The spirit makes a number of attacks equal to half this spell's level (round down).</p>
